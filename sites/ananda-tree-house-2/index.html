@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ananda Tree House - Your Serene Escape</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4CAF50; /* A pleasant green */
+            --secondary-color: #388E3C; /* Darker green for accents */
+            --accent-color: #FFC107; /* Gold for highlights */
+            --text-dark: #333;
+            --text-light: #666;
+            --background-light: #f9f9f9;
+            --background-white: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+            --focus-outline: 2px solid var(--accent-color);
+        }
+
+        /* Base Reset & Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0.8em;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 2.5em; }
+        h2 { font-size: 2em; }
+        h3 { font-size: 1.75em; }
+        p { margin-bottom: 1em; }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        a:hover, a:focus {
+            color: var(--secondary-color);
+            outline: none;
+        }
+        
+        a:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8em 1.8em;
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover, .btn:focus {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 0.7em 1.7em;
+        }
+
+        .btn-outline:hover, .btn-outline:focus {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Header */
+        .site-header {
+            background-color: var(--background-white);
+            padding: 1rem 0;
+            box-shadow: var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-right: 1rem;
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .main-nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav a:hover::after, .main-nav a:focus::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1507525428034-b723cf961fac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTIyMjh8MHwxfHNlYXJjaHw1fHx0cmVlJTIwaG91c2UlMjBuZXBhbHxlbnwwfHx8fDE3MDI2NjQ5NjN8MA&ixlib=rb-4.0.3&q=80&w=1920') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 8rem 1.5rem;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.7) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 2em;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .btn {
+            font-size: 1.1em;
+            padding: 1em 2.5em;
+        }
+
+        /* Section Styling */
+        .section-padding {
+            padding: 4rem 0;
+        }
+
+        .section-dark {
+            background-color: var(--background-light);
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-heading h2 {
+            font-size: 2.5em;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 0.3em;
+        }
+
+        .section-heading h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Services/Benefits */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-item {
+            background-color: var(--background-white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .service-item h3 {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin-bottom: 0.8em;
+        }
+
+        .service-item p {
+            color: var(--text-light);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-bottom: 0.5em;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5em;
+            color: var(--text-light);
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            min-height: 250px;
+        }
+
+        /* Social Proof */
+        .social-proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .proof-item {
+            background-color: var(--background-white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .proof-item h3 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 0.2em;
+        }
+
+        .proof-item p {
+            font-weight: 500;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9em;
+        }
+
+        .stars {
+            color: var(--accent-color);
+            font-size: 1.5em;
+            margin-bottom: 0.5em;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 4rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .cta-section h2 {
+            color: white;
+            font-size: 2.2em;
+            margin-bottom: 1em;
+        }
+
+        .cta-section .btn {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 1em 2.5em;
+            font-size: 1.1em;
+        }
+
+        .cta-section .btn:hover, .cta-section .btn:focus {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        .contact-info {
+            background-color: var(--background-white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5em;
+            font-size: 1.8em;
+        }
+
+        .contact-info ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            color: var(--text-dark);
+            font-size: 1.1em;
+        }
+
+        .contact-info li svg {
+            color: var(--primary-color);
+            font-size: 1.5em;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            background-color: var(--background-white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+        }
+
+        .contact-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5em;
+            font-size: 1.8em;
+        }
+
+        .form-group {
+            margin-bottom: 1.5em;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5em;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8em;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            padding: 1em;
+            font-size: 1.1em;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--text-dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .site-footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .footer-nav ul {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-nav a {
+            color: white;
+            font-weight: 400;
+        }
+
+        .footer-nav a:hover, .footer-nav a:focus {
+            color: var(--primary-color);
+        }
+
+        .footer-info p {
+            margin-bottom: 0.5em;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95em;
+        }
+
+        .footer-info a {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .footer-info a:hover, .footer-info a:focus {
+            color: var(--primary-color);
+        }
+
+        /* Accessibility: Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent-color);
+            color: var(--text-dark);
+            padding: 8px;
+            z-index: 999;
+            transition: top 0.3s ease;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Responsive Adjustments */
+        @media (min-width: 768px) {
+            h1 { font-size: 3.5em; }
+            h2 { font-size: 2.8em; }
+            h3 { font-size: 2em; }
+
+            .site-header .container {
+                flex-wrap: nowrap;
+            }
+
+            .main-nav {
+                margin-left: auto;
+            }
+            .main-nav ul {
+                flex-wrap: nowrap;
+            }
+
+            .hero {
+                padding: 10rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 4.5em;
+            }
+
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-content {
+                order: 1; /* Text first on larger screens */
+            }
+
+            .about-image {
+                order: 2; /* Image second on larger screens */
+            }
+
+            .cta-section h2 {
+                font-size: 2.8em;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 1.5rem 0;
+            }
+
+            .hero {
+                padding: 12rem 0;
+            }
+
+            .hero h1 {
+                font-size: 5em;
+            }
+        }
+
+        /* SVG Icons (Font Awesome-like) */
+        .icon {
+            width: 1.2em;
+            height: 1.2em;
+            vertical-align: middle;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="#hero" class="logo">Ananda Tree House</a>
+            <nav class="main-nav" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#services">Features</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1>Experience Serenity at Ananda Tree House</h1>
+                <p>Your tranquil escape nestled in the heart of Kathmandu, offering a unique blend of comfort and nature.</p>
+                <a href="tel:+9779808991305" class="btn">Call Now: +977 980-8991305</a>
+            </div>
+        </section>
+
+        <section id="services" class="section-padding">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Our Unique Offerings</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <h3>Peaceful Location</h3>
+                        <p>Escape the city bustle in our calm, natural surroundings.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Comfortable Stays</h3>
+                        <p>Well-appointed spaces designed for relaxation and rejuvenation.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Local Charm</h3>
+                        <p>Immerse yourself in the vibrant culture of Boudha and Kathmandu.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Exceptional Service</h3>
+                        <p>Our dedicated team ensures a memorable and pleasant visit for every guest.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section-padding section-dark">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>About Ananda Tree House</h2>
+                </div>
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h3>A Retreat in Kathmandu</h3>
+                        <p>Ananda Tree House offers a distinctive experience in Kathmandu. Located conveniently near the bustling Boudha Road, we provide a peaceful haven away from the city's rush while keeping you connected to its vibrant energy.</p>
+                        <p>Our establishment is designed to blend seamlessly with its natural surroundings, offering a refreshing atmosphere for both short and long stays. We pride ourselves on creating an environment where guests can relax, explore, and feel at home.</p>
+                        <a href="#contact" class="btn-outline">Learn More</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1549726244-67253a6a111a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTIyMjh8MHwxfHNlYXJjaHw3fHx0cmVlJTIwaG91c2UlMjBhcmNoaXRlY3R1cmV8ZW58MHx8fHwxNzA1MjQ5NTUzfDA&ixlib=rb-4.0.3&q=80&w=600" alt="Generic image of a beautiful building in nature">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="social-proof" class="section-padding">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>What Our Guests Say</h2>
+                </div>
+                <div class="social-proof-grid">
+                    <div class="proof-item">
+                        <div class="stars" role="img" aria-label="4.7 out of 5 stars">
+                            ★★★★☆
+                        </div>
+                        <h3>4.7</h3>
+                        <p>Overall Rating</p>
+                    </div>
+                    <div class="proof-item">
+                        <h3>269</h3>
+                        <p>Guest Reviews</p>
+                    </div>
+                    <div class="proof-item">
+                        <h3>B</h3>
+                        <p>Tier Classification</p>
+                    </div>
+                    <div class="proof-item">
+                        <h3>5</h3>
+                        <p>Quality Score</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready for Your Next Getaway?</h2>
+                <p>Discover the peace and comfort awaiting you at Ananda Tree House.</p>
+                <a href="tel:+9779808991305" class="btn">Call Us Today</a>
+            </div>
+        </section>
+
+        <section id="contact" class="section-padding">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Get in Touch</h2>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Contact Details</h3>
+                        <ul>
+                            <li>
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="M12 12c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-10c-3.31 0-6 2.69-6 6 0 4.52 4.84 10.74 5.56 11.53.25.28.64.28.89 0C13.16 20.74 18 14.52 18 8c0-3.31-2.69-6-6-6zm0 14c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+                                </svg>
+                                <address>Opposite Mangaldvip Boarding School, Phulbari- Ramhiti, 6 Boudha Rd, Kathmandu 44600, Nepal</address>
+                            </li>
+                            <li>
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.01.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.28-.27.36-.66.25-1.01C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
+                                </svg>
+                                <a href="tel:+9779808991305">+977 980-8991305</a>
+                            </li>
+                            <li>
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                                <a href="mailto:info@anandatreehouse.com">info@anandatreehouse.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required aria-label="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" required aria-label="Your Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" required aria-label="Your Message"></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <a href="#hero" class="footer-logo">Ananda Tree House</a>
+            <nav class="footer-nav" aria-label="Footer Navigation">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#services">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="footer-info">
+                <p>&copy; 2023 Ananda Tree House. All rights reserved.</p>
+                <p>Located at: Opposite Mangaldvip Boarding School, Phulbari- Ramhiti, 6 Boudha Rd, Kathmandu 44600, Nepal</p>
+                <p>Call us: <a href="tel:+9779808991305">+977 980-8991305</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
