@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavour Camp - Restaurant & Coffee Shop</title>
+    <meta name="description" content="Experience delightful flavors and a cozy atmosphere at Flavour Camp Restaurant & Coffee Shop in Kathmandu.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #A0522D; /* Sienna */
+            --secondary-color: #F5DEB3; /* Wheat */
+            --dark-color: #333;
+            --light-color: #f9f9f9;
+            --text-color: #444;
+            --border-radius: 8px;
+            --spacing-unit: 1.5rem;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        a:hover, a:focus {
+            color: var(--dark-color);
+            outline: none;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-color);
+            margin-bottom: 0.8em;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2.2rem; }
+        h3 { font-size: 1.8rem; }
+
+        @media (min-width: 768px) {
+            h1 { font-size: 3.8rem; }
+            h2 { font-size: 2.8rem; }
+            h3 { font-size: 2.2rem; }
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8em 1.8em;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .btn:hover, .btn:focus {
+            background-color: var(--dark-color);
+            transform: translateY(-2px);
+            color: white;
+            outline: none;
+        }
+
+        .section-padding {
+            padding: calc(var(--spacing-unit) * 3) 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Header */
+        .site-header {
+            background-color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-toggle {
+            display: none; /* Hidden by default */
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+
+        .main-nav {
+            list-style: none;
+            display: flex;
+            gap: var(--spacing-unit);
+        }
+
+        .main-nav a {
+            font-weight: 600;
+            padding: 0.5em 0;
+            position: relative;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav a:hover::after, .main-nav a:focus::after {
+            width: 100%;
+        }
+
+        @media (max-width: 767px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                flex-direction: column;
+                width: 100%;
+                display: none; /* Hidden by default */
+                margin-top: 1rem;
+                text-align: center;
+            }
+
+            .main-nav.is-open {
+                display: flex;
+            }
+
+            .main-nav li {
+                margin: 0.5rem 0;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            color: white;
+            padding: calc(var(--spacing-unit) * 5) 0;
+            text-align: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            color: white;
+            margin-bottom: 0.5em;
+            font-size: 3rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.5;
+        }
+
+        .hero .btn {
+            font-size: 1.1rem;
+            padding: 1em 2.5em;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 4.5rem;
+            }
+            .hero p {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Services/Benefits Section */
+        .services {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: calc(var(--spacing-unit) * 2);
+            margin-top: calc(var(--spacing-unit) * 2);
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        .service-item {
+            background-color: white;
+            padding: calc(var(--spacing-unit) * 1.5);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5em;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light-color);
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: calc(var(--spacing-unit) * 2);
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .about-content {
+                flex-direction: row;
+                text-align: left;
+            }
+            .about-text {
+                flex: 1;
+                padding-right: var(--spacing-unit);
+            }
+            .about-image {
+                flex: 1;
+                max-width: 50%;
+            }
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Social Proof Section */
+        .social-proof {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+
+        .social-proof h2 {
+            color: white;
+        }
+
+        .rating-stars {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5em;
+        }
+
+        .rating-stars span {
+            margin: 0 2px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 3) 0;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--light-color);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: calc(var(--spacing-unit) * 2);
+            margin-top: calc(var(--spacing-unit) * 2);
+        }
+
+        @media (min-width: 768px) {
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .contact-info {
+            background-color: white;
+            padding: calc(var(--spacing-unit) * 1.5);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1em;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5em;
+        }
+
+        .contact-info a {
+            display: block;
+            margin-bottom: 0.5em;
+            color: var(--dark-color);
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5em;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8em;
+            margin-bottom: 1em;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(160, 82, 45, 0.2);
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: var(--spacing-unit) 0;
+            font-size: 0.9rem;
+        }
+
+        .site-footer p {
+            margin: 0;
+        }
+
+        .site-footer a {
+            color: var(--secondary-color);
+        }
+
+        .site-footer a:hover {
+            color: white;
+        }
+
+        /* Accessibility */
+        .btn:focus, a:focus, button:focus {
+            outline: 2px solid var(--secondary-color);
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="#" class="logo">Flavour Camp</a>
+            <button class="nav-toggle" aria-controls="main-navigation" aria-expanded="false">
+                &#9776; <!-- Hamburger icon -->
+                <span class="sr-only">Toggle navigation</span>
+            </button>
+            <nav id="main-navigation" class="main-nav">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#services">Our Offerings</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1>Welcome to Flavour Camp</h1>
+                <p>Discover a delightful culinary journey and the finest coffee in Kathmandu. Your taste adventure begins here.</p>
+                <a href="#contact" class="btn">Book a Table</a>
+            </div>
+        </section>
+
+        <section id="services" class="services section-padding">
+            <div class="container text-center">
+                <h2>Our Delicious Offerings</h2>
+                <p>Indulge in a curated selection of dishes and beverages designed to satisfy every palate.</p>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <h3>Gourmet Meals</h3>
+                        <p>Experience exquisite dishes crafted with fresh, local ingredients and international flair.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Artisan Coffee</h3>
+                        <p>Savour expertly brewed coffee, from rich espresso to creamy lattes, prepared by skilled baristas.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Cozy Atmosphere</h3>
+                        <p>Relax in our warm and inviting space, perfect for casual meet-ups or special occasions.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Fresh Pastries</h3>
+                        <p>Enjoy a selection of freshly baked goods, ideal for breakfast or an afternoon treat.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about section-padding">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>About Flavour Camp</h2>
+                        <p>Flavour Camp is more than just a restaurant and coffee shop; it's a destination where culinary passion meets a welcoming atmosphere. Located in the vibrant heart of Thamel, Kathmandu, we are dedicated to providing an unforgettable experience for every guest.</p>
+                        <p>Our commitment to quality, fresh ingredients, and exceptional service ensures that every visit is a treat for the senses. Whether you're craving a hearty meal, a perfectly brewed coffee, or a sweet escape, Flavour Camp is your ideal spot.</p>
+                        <a href="#contact" class="btn">Learn More & Contact</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1552566626-52f8472ec733?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Restaurant interior with warm lighting" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="social-proof section-padding">
+            <div class="container">
+                <h2>Highly Rated by Our Guests</h2>
+                <div class="rating-stars" aria-label="Rated 5 out of 5 stars">
+                    <span aria-hidden="true">&#9733;</span><span aria-hidden="true">&#9733;</span><span aria-hidden="true">&#9733;</span><span aria-hidden="true">&#9733;</span><span aria-hidden="true">&#9733;</span>
+                </div>
+                <p>Based on 101 reviews</p>
+                <p>Flavour Camp is proud to maintain a 5-star rating, reflecting our dedication to excellence and customer satisfaction. We are grateful for the positive feedback from our valued patrons.</p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Indulge?</h2>
+                <p>Don't miss out on the unique experience at Flavour Camp. Whether it's a quick coffee or a memorable meal, we look forward to serving you.</p>
+                <a href="tel:+9779761086866" class="btn">Call Now: +977 976-1086866</a>
+            </div>
+        </section>
+
+        <section id="contact" class="contact section-padding">
+            <div class="container text-center">
+                <h2>Get in Touch</h2>
+                <p>We'd love to hear from you! Reach out to us for reservations, inquiries, or feedback.</p>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Our Location</h3>
+                        <p>Flavour Camp Restaurant and Coffee Shop</p>
+                        <p>Kunphen marga,paknajol-16 Thamel</p>
+                        <p>Kathmandu 44600, Nepal</p>
+                        <p><a href="https://maps.app.goo.gl/YOUR_GOOGLE_MAPS_LINK_HERE" target="_blank" rel="noopener noreferrer">View on Map</a></p>
+                        <h3 style="margin-top:1.5em;">Contact Details</h3>
+                        <p>Phone: <a href="tel:+9779761086866">+977 976-1086866</a></p>
+                        <p>Email: <a href="mailto:info@flavourcamp.com">info@flavourcamp.com</a></p>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form action="#" method="POST">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required aria-label="Your Name">
+
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required aria-label="Your Email Address">
+
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required aria-label="Your Message"></textarea>
+
+                            <button type="submit" class="btn">Submit Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2023 Flavour Camp Restaurant & Coffee Shop. All rights reserved.</p>
+            <p><a href="#hero">Back to Top</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.querySelector('.nav-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            const navLinks = mainNav.querySelectorAll('a');
+
+            navToggle.addEventListener('click', () => {
+                const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+                navToggle.setAttribute('aria-expanded', !expanded);
+                mainNav.classList.toggle('is-open');
+            });
+
+            // Close nav when a link is clicked (for mobile)
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNav.classList.contains('is-open')) {
+                        navToggle.setAttribute('aria-expanded', 'false');
+                        mainNav.classList.remove('is-open');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
