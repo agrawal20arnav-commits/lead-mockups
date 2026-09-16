@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavour Camp - Restaurant & Coffee Shop</title>
+    <meta name="description" content="Experience delightful flavors and a cozy atmosphere at Flavour Camp Restaurant & Coffee Shop in Kathmandu.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #A0522D; /* Sienna */
+            --secondary-color: #D2B48C; /* Tan */
+            --accent-color: #5F9EA0; /* CadetBlue */
+            --text-dark: #333;
+            --text-light: #f9f9f9;
+            --bg-light: #f9f9f9;
+            --bg-dark: #2c2c2c;
+            --border-color: #eee;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Roboto', sans-serif;
+        }
+
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            margin-bottom: 0.8em;
+            color: var(--primary-color);
+        }
+
+        h1 { font-size: 2.8em; }
+        h2 { font-size: 2.2em; }
+        h3 { font-size: 1.8em; }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        a:hover, a:focus {
+            color: var(--accent-color);
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5em;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 0.9em 1.8em;
+            border-radius: 5px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .btn:hover, .btn:focus {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+            color: var(--text-light); /* Ensure text remains light */
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        .btn.btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn.btn-outline:hover, .btn.btn-outline:focus {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border-color: var(--primary-color);
+        }
+
+        /* Header */
+        .site-header {
+            background-color: var(--bg-light);
+            padding: 1em 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 5px 0;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5em;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 0.5em 0;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after, .nav-menu a:focus::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTc4NzZ8MHwxfHNlYXJjaHwxfHxyZXN0YXVyYW50JTIwY29mZmVlJTIwc2hvcHxlbnwwfHx8fDE3MTU3NzY0NzZ8MA&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 8em 1.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 0.3em;
+            color: var(--secondary-color);
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 2em;
+            opacity: 0.9;
+            color: var(--text-light);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 4em 0;
+            text-align: center;
+        }
+
+        .section:nth-of-type(even) {
+            background-color: var(--bg-light);
+        }
+
+        .section:nth-of-type(odd) {
+            background-color: #f0f0f0;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            margin-bottom: 1.5em;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5em;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Services/Benefits */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2em;
+            margin-top: 3em;
+        }
+
+        .service-item {
+            background-color: var(--bg-light);
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+
+        .service-item h3 {
+            color: var(--accent-color);
+            font-size: 1.5em;
+            margin-bottom: 0.8em;
+        }
+
+        .service-item p {
+            font-size: 1em;
+            color: var(--text-dark);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2em;
+            text-align: left;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+            max-width: 700px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 280px;
+            max-width: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 4em 0;
+            text-align: center;
+        }
+
+        .social-proof .section-title {
+            color: var(--secondary-color);
+        }
+
+        .social-proof .section-title::after {
+            background-color: var(--secondary-color);
+        }
+
+        .proof-cards {
+            display: flex;
+            justify-content: center;
+            gap: 2em;
+            flex-wrap: wrap;
+            margin-top: 3em;
+        }
+
+        .proof-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1.5em 2em;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 250px;
+            max-width: 300px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .proof-card h3 {
+            color: var(--text-light);
+            margin-bottom: 0.5em;
+            font-size: 1.8em;
+        }
+
+        .proof-card p {
+            font-size: 1em;
+            opacity: 0.9;
+            color: var(--text-light);
+        }
+
+        .stars {
+            color: gold;
+            font-size: 1.5em;
+            margin-top: 0.5em;
+            letter-spacing: 2px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--secondary-color);
+            padding: 5em 1.5em;
+            text-align: center;
+            color: var(--text-dark);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 0.8em;
+            color: var(--primary-color);
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 2.5em;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 4em 0;
+            text-align: center;
+            background-color: var(--bg-light);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em;
+            margin-top: 2em;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            font-size: 1.1em;
+            color: var(--text-dark);
+        }
+
+        .contact-item svg {
+            color: var(--primary-color);
+            font-size: 1.5em;
+        }
+
+        .contact-map {
+            margin-top: 3em;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 3em 0;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .site-footer p {
+            margin-bottom: 0.5em;
+            opacity: 0.8;
+        }
+
+        .site-footer a {
+            color: var(--secondary-color);
+        }
+
+        .site-footer a:hover, .site-footer a:focus {
+            color: var(--accent-color);
+        }
+
+        /* Accessibility & Focus States */
+        a:focus, button:focus, input:focus, select:focus, textarea:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 3px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 4.5em;
+            }
+
+            .hero p {
+                font-size: 1.4em;
+            }
+
+            .section {
+                padding: 6em 0;
+            }
+
+            .section-title {
+                font-size: 3em;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .about-content {
+                flex-direction: row;
+                text-align: left;
+                align-items: flex-start;
+            }
+
+            .about-text {
+                padding-right: 3em;
+            }
+
+            .contact-info {
+                flex-direction: row;
+                justify-content: center;
+                gap: 3em;
+            }
+
+            .site-header .container {
+                flex-wrap: nowrap;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .site-header .container {
+                flex-direction: column;
+                gap: 1em;
+            }
+
+            .nav-menu ul {
+                flex-direction: column;
+                gap: 0.5em;
+                width: 100%;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 0.8em 0;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .nav-menu a::after {
+                display: none;
+            }
+
+            .hero {
+                padding: 6em 1.5em;
+            }
+
+            .hero h1 {
+                font-size: 2.8em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text {
+                padding-right: 0;
+            }
+
+            .proof-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .proof-card {
+                width: 90%;
+            }
+
+            .cta-section h2 {
+                font-size: 2em;
+            }
+
+            .cta-section p {
+                font-size: 1em;
+            }
+
+            .contact-map iframe {
+                height: 300px;
+            }
+        }
+
+        /* SVG Icons Basic Styling */
+        .icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.125em;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="#" class="logo">Flavour Camp</a>
+            <nav class="nav-menu" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#services">Our Offerings</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#social-proof">Why Choose Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1>Taste the Adventure at Flavour Camp</h1>
+                <p>Your ultimate destination for exceptional dining and delightful coffee in Kathmandu.</p>
+                <a href="#contact" class="btn">Contact Us</a>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="section-title">Our Offerings</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <h3>Exquisite Dining</h3>
+                        <p>Savor a diverse menu crafted with fresh, quality ingredients, offering a culinary journey for every palate.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Premium Coffee</h3>
+                        <p>Indulge in expertly brewed coffee, from rich espressos to creamy lattes, perfect for any time of day.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Cozy Atmosphere</h3>
+                        <p>Relax in our warm and inviting ambiance, ideal for casual meals, friendly gatherings, or quiet work sessions.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Freshly Baked Goods</h3>
+                        <p>Enjoy a selection of delicious pastries and treats, baked daily to complement your coffee or meal.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Friendly Service</h3>
+                        <p>Our dedicated team is committed to providing a welcoming experience and attentive service to all our guests.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Community Hub</h3>
+                        <p>A perfect spot to connect, unwind, and enjoy the vibrant atmosphere of Kathmandu.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Flavour Camp</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Flavour Camp Restaurant and Coffee Shop is more than just a place to eat and drink; it's an experience. Nestled in the heart of Kathmandu, we pride ourselves on creating a space where delicious food, exceptional coffee, and a welcoming atmosphere come together.</p>
+                        <p>We are dedicated to providing a memorable visit for every guest, whether you're starting your day with a freshly brewed coffee, enjoying a leisurely lunch, or unwinding with dinner. Our commitment to quality ingredients and warm hospitality sets us apart.</p>
+                        <p>Come discover your new favorite spot at Flavour Camp!</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1541167718042-b94f57c2810f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTc4NzZ8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBzaG9wJTIwaW50ZXJpb3J8ZW58MHx8fHwxNzE1Nzc2NDc2fDA&ixlib=rb-4.0.3&q=80&w=600" alt="Interior of a cozy coffee shop">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="social-proof" class="social-proof">
+            <div class="container">
+                <h2 class="section-title">Why Our Guests Love Us</h2>
+                <div class="proof-cards">
+                    <div class="proof-card">
+                        <h3>Exceptional Rating</h3>
+                        <p>Rated <strong>5 out of 5 stars</strong> by our valued customers.</p>
+                        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                    </div>
+                    <div class="proof-card">
+                        <h3>Highly Reviewed</h3>
+                        <p>With <strong>100+ reviews</strong>, our quality and service shine through.</p>
+                        <p>See what everyone is talking about!</p>
+                    </div>
+                    <div class="proof-card">
+                        <h3>Top Tier Experience</h3>
+                        <p>Recognized as a <strong>Tier B establishment</strong>, a benchmark for quality.</p>
+                        <p>Consistently delivering high standards.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready for a Flavourful Experience?</h2>
+                <p>Whether you're craving a gourmet meal, a perfect cup of coffee, or a cozy place to relax, Flavour Camp is here to welcome you. Plan your visit today!</p>
+                <a href="#contact" class="btn btn-outline">Visit Us Today</a>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02L6.62 10.79z"/></svg>
+                        <a href="tel:+9779761086866">+977 976-1086866</a>
+                    </div>
+                    <div class="contact-item">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+                        <address>Kunphen marga,paknajol-16 Thamel, Kathmandu 44600, Nepal</address>
+                    </div>
+                </div>
+                <div class="contact-map">
+                    <iframe title="Location of Flavour Camp Restaurant & Coffee Shop" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.062804564286!2d85.31295321506202!3d27.71510448279183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1950d268b35f%3A0x867332e987c0e5a!2sFlavour%20Camp%20Restaurant%20and%20Coffee%20Shop!5e0!3m2!1sen!2snp!4v1678912345678!5m2!1sen!2snp" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Flavour Camp Restaurant & Coffee Shop. All rights reserved.</p>
+            <p>Designed with passion in Kathmandu.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
