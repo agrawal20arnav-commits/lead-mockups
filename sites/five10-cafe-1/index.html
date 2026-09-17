@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Five10 Cafe - Your Perfect Spot</title>
-    <meta name="description" content="Discover Five10 Cafe: A premium cafe experience in Kathmandu. ">
+    <title>Five10 Cafe: The Pulse of Thabahi Sadak</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #A52A2A; /* A rich brown/maroon */
-            --secondary-color: #F8F8F8; /* Light background */
-            --text-color: #333;
-            --light-text-color: #666;
-            --white: #fff;
-            --accent-color: #FFD700; /* Gold for highlights */
-            --border-radius: 8px;
-            --spacing-unit: 1rem;
+            --color-terracotta: #E2725B;
+            --color-deep-sage: #4A6B4E;
+            --color-golden-amber: #F0B34F;
+            --color-cream: #FDF9F3;
+            --color-dark-grey: #333333;
+            --color-light-grey: #E0E0E0;
+            --color-white: #FFFFFF;
         }
 
-        /* Basic Reset & Typography */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -29,99 +29,73 @@
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--white);
+            color: var(--color-dark-grey);
+            background-color: var(--color-cream);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-            margin-bottom: var(--spacing-unit);
-            color: var(--primary-color);
+            font-family: 'Merriweather', serif;
+            color: var(--color-deep-sage);
+            margin-bottom: 0.8em;
         }
 
-        h1 { font-size: 2.5rem; }
-        h2 { font-size: 2rem; }
-        h3 { font-size: 1.5rem; }
+        h1 { font-size: 2.8em; }
+        h2 { font-size: 2.2em; }
+        h3 { font-size: 1.8em; }
 
         p {
-            margin-bottom: var(--spacing-unit);
+            margin-bottom: 1em;
         }
 
         a {
-            color: var(--primary-color);
+            color: var(--color-terracotta);
             text-decoration: none;
-            transition: color 0.3s ease, background-color 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         a:hover, a:focus {
-            color: var(--accent-color);
-            outline: none;
+            color: var(--color-golden-amber);
+            outline: 2px solid var(--color-golden-amber);
+            outline-offset: 2px;
         }
 
-        /* Utility Classes */
+        button, .button {
+            display: inline-block;
+            background-color: var(--color-terracotta);
+            color: var(--color-white);
+            padding: 0.8em 1.8em;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        button:hover, button:focus, .button:hover, .button:focus {
+            background-color: #C85C4A; /* Slightly darker terracotta */
+            transform: translateY(-2px);
+            outline: 2px solid var(--color-golden-amber);
+            outline-offset: 2px;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: calc(2 * var(--spacing-unit));
+            padding: 1.5em;
         }
 
-        .text-center {
-            text-align: center;
-        }
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 1rem 2rem;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn:hover, .btn:focus {
-            background-color: #8B1A1A; /* Darker primary */
-            transform: translateY(-2px);
-            outline: none;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-        }
-
-        .btn-outline:hover, .btn-outline:focus {
-            background-color: var(--primary-color);
-            color: var(--white);
-        }
-
-        /* Header */
+        /* Header & Navigation */
         .site-header {
-            background-color: var(--white);
-            padding: var(--spacing-unit) 0;
-            border-bottom: 1px solid #eee;
+            background-color: var(--color-deep-sage);
+            padding: 1em 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -135,22 +109,34 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            color: var(--color-cream);
+            font-family: 'Merriweather', serif;
+            font-size: 1.8em;
             font-weight: 700;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--color-cream);
+            font-size: 1.8em;
+            cursor: pointer;
+            padding: 0.5em;
         }
 
         .main-nav ul {
             list-style: none;
             display: flex;
-            gap: 1.5rem;
+            gap: 1.5em;
         }
 
         .main-nav a {
-            font-weight: 500;
-            padding: 0.5rem 0;
+            color: var(--color-cream);
+            font-weight: 600;
+            font-size: 1.05em;
+            padding: 0.5em 0;
             position: relative;
         }
 
@@ -161,7 +147,7 @@
             bottom: 0;
             width: 0;
             height: 2px;
-            background-color: var(--accent-color);
+            background-color: var(--color-golden-amber);
             transition: width 0.3s ease;
         }
 
@@ -171,341 +157,354 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517263914838-8e010c2c3669?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjVlMjJ8MHwxfHNlYXJjaHwxNXx8Y2FmZSUyMGludGVyaW9yfGVufDB8fHx8MTY3ODk3NTQwMg&ixlib=rb-4.0.3&q=80&w=1920') no-repeat center center/cover;
-            color: var(--white);
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjVlMjJdfDB8MXxzZWFyY2h8MTB8fGNhZmUlMjBpbnRlcmlvcnxlbnwwfHx8fDE2NzkwMTI4NzQ&ixlib=rb-4.0.3&q=80&w=1920') no-repeat center center/cover;
+            color: var(--color-white);
             text-align: center;
-            padding: 6rem 1rem;
-            min-height: 70vh;
+            padding: 6em 1.5em;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
+            min-height: 70vh;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: var(--white);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: var(--color-golden-amber);
+            font-size: 3.5em;
+            margin-bottom: 0.3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
+            font-size: 1.4em;
             max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.9;
+            margin-bottom: 2em;
+            line-height: 1.4;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
-        .hero .btn {
-            font-size: 1.2rem;
-            padding: 1.2rem 2.5rem;
-        }
-
-        /* Sections */
-        .section {
-            padding: 4rem 0;
-            background-color: var(--secondary-color);
-            margin-bottom: 0; /* Remove default margin */
-        }
-
-        .section:nth-of-type(even) {
-            background-color: var(--white);
-        }
-
-        .section h2 {
-            text-align: center;
-            margin-bottom: 3rem;
+        /* Section Styling */
+        section {
+            padding: 4em 0;
             position: relative;
-            padding-bottom: 1rem;
         }
 
-        .section h2::after {
+        section:nth-of-type(even) {
+            background-color: var(--color-cream);
+        }
+
+        section:nth-of-type(odd):not(.hero) {
+            background-color: #F8F4EF; /* Lighter cream */
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5em;
+            color: var(--color-terracotta);
+            font-size: 2.5em;
+            position: relative;
+            padding-bottom: 0.5em;
+        }
+
+        .section-title::after {
             content: '';
             position: absolute;
             left: 50%;
             bottom: 0;
             transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background-color: var(--accent-color);
-            border-radius: 2px;
+            width: 80px;
+            height: 3px;
+            background-color: var(--color-golden-amber);
         }
 
-        /* Services/Benefits */
-        .benefits-grid {
+        /* Offerings Section */
+        .offerings-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: 2em;
         }
 
-        .benefit-card {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: var(--border-radius);
+        .offering-card {
+            background-color: var(--color-white);
+            border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding: 2em;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        .offering-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
 
-        .benefit-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
+        .offering-card h3 {
+            color: var(--color-deep-sage);
+            margin-bottom: 0.8em;
         }
 
-        .benefit-card p {
-            color: var(--light-text-color);
+        .offering-card p {
+            color: #666;
+            font-size: 0.95em;
         }
 
         /* About Section */
         .about-content {
             display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
+            flex-direction: column;
+            gap: 2.5em;
             align-items: center;
         }
 
-        .about-image, .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .about-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .about-text h3 {
-            margin-bottom: 1rem;
-        }
-
-        .about-text p {
-            color: var(--light-text-color);
-        }
-
-        /* Social Proof (Rating) */
-        .social-proof {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 3rem 1rem;
+        .about-text {
+            max-width: 700px;
             text-align: center;
         }
 
-        .social-proof h2 {
-            color: var(--white);
+        .about-text h2 {
+            color: var(--color-terracotta);
+            margin-bottom: 1em;
         }
 
-        .rating-info {
+        .about-text p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .ambiance-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5em;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .ambiance-item {
+            background-color: var(--color-white);
+            border-radius: 8px;
+            padding: 1.5em;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .ambiance-item h4 {
+            color: var(--color-deep-sage);
+            margin-bottom: 0.5em;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            background-color: var(--color-deep-sage);
+            color: var(--color-cream);
+            text-align: center;
+            padding: 4em 1.5em;
+        }
+
+        .social-proof .section-title {
+            color: var(--color-golden-amber);
+        }
+
+        .social-proof .section-title::after {
+            background-color: var(--color-cream);
+        }
+
+        .review-stats {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
-            font-size: 1.2rem;
+            gap: 1.5em;
+            margin-bottom: 2em;
         }
 
-        .stars {
-            color: var(--accent-color);
-            font-size: 2rem;
-            letter-spacing: 3px;
+        .rating-stars {
+            font-size: 2.5em;
+            color: var(--color-golden-amber);
+            letter-spacing: 2px;
+        }
+
+        .rating-text {
+            font-size: 1.3em;
+            font-weight: 600;
         }
 
         /* CTA Section */
         .cta-section {
-            background-color: var(--secondary-color);
-            padding: 4rem 1rem;
+            background-color: var(--color-terracotta);
+            color: var(--color-white);
             text-align: center;
+            padding: 4em 1.5em;
         }
 
         .cta-section h2 {
-            margin-bottom: 1.5rem;
+            color: var(--color-white);
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
         }
 
         .cta-section p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+            font-size: 1.2em;
             max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--light-text-color);
+            margin: 0 auto 2em auto;
         }
 
         /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2em;
+            align-items: center;
         }
 
         .contact-info {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            background-color: var(--color-white);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 2.5em;
             text-align: center;
+            max-width: 400px;
+            width: 100%;
         }
 
         .contact-info h3 {
-            margin-bottom: 1rem;
-            color: var(--primary-color);
+            color: var(--color-deep-sage);
+            margin-bottom: 1em;
         }
 
         .contact-info p {
-            margin-bottom: 0.5rem;
-            color: var(--light-text-color);
+            margin-bottom: 0.8em;
+            font-size: 1.1em;
         }
 
         .contact-info a {
-            display: block;
-            margin-top: 0.5rem;
-            font-weight: 500;
-        }
-
-        .contact-form {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            grid-column: span 2; /* Spans across two columns on larger screens */
-        }
-        
-        @media (min-width: 768px) {
-            .contact-form {
-                grid-column: span 1; /* Reset for larger screens if grid allows */
-            }
-            .contact-grid {
-                grid-template-columns: 1fr 2fr; /* Info on left, form on right */
-            }
-        }
-
-
-        .contact-form label {
-            display: block;
-            margin-bottom: 0.5rem;
             font-weight: 600;
-            color: var(--text-color);
+            color: var(--color-terracotta);
         }
 
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form input[type="tel"],
-        .contact-form textarea {
-            width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            color: var(--text-color);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .contact-form input[type="text"]:focus,
-        .contact-form input[type="email"]:focus,
-        .contact-form input[type="tel"]:focus,
-        .contact-form textarea:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(165, 42, 42, 0.2);
-            outline: none;
-        }
-
-        .contact-form textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .contact-form .btn {
-            width: auto;
-            padding: 0.8rem 2rem;
+        .contact-info a:hover, .contact-info a:focus {
+            color: var(--color-golden-amber);
         }
 
         /* Footer */
         .site-footer {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 2rem 0;
+            background-color: var(--color-dark-grey);
+            color: var(--color-light-grey);
+            padding: 2.5em 0;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.9em;
         }
 
         .site-footer p {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.5em;
         }
 
         .site-footer a {
-            color: var(--accent-color);
-            margin: 0 0.5rem;
-        }
-
-        .site-footer a:hover, .site-footer a:focus {
-            color: var(--white);
+            color: var(--color-golden-amber);
         }
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .site-header .container {
-                flex-direction: column;
-                gap: 1rem;
+            .nav-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                width: 100%;
+                order: 1; /* Puts nav below logo on small screens */
+                margin-top: 1em;
+                display: none; /* Hidden by default */
+            }
+
+            .main-nav.active {
+                display: block; /* Show when active */
             }
 
             .main-nav ul {
                 flex-direction: column;
-                gap: 0.5rem;
-                align-items: center;
+                gap: 0.5em;
+                text-align: center;
             }
 
-            .hero {
-                padding: 4rem 1rem;
-                min-height: 50vh;
+            .main-nav li {
+                width: 100%;
+            }
+
+            .main-nav a {
+                display: block;
+                padding: 0.8em 0;
+                background-color: rgba(255,255,255,0.1);
+                border-radius: 5px;
+            }
+
+            .main-nav a::after {
+                display: none; /* Hide underline on mobile nav items */
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.5em;
             }
 
             .hero p {
-                font-size: 1rem;
+                font-size: 1.1em;
             }
 
-            .section {
-                padding: 3rem 0;
+            h1 { font-size: 2.2em; }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.5em; }
+
+            .section-title {
+                font-size: 2em;
             }
 
-            .section h2 {
-                font-size: 1.8rem;
-                margin-bottom: 2rem;
-            }
-
-            .about-content {
-                flex-direction: column;
-            }
-
-            .contact-grid {
+            .offerings-grid, .ambiance-details {
                 grid-template-columns: 1fr;
             }
-            .contact-form {
-                grid-column: span 1;
+
+            .about-text, .cta-section p {
+                text-align: left;
+            }
+
+            .review-stats {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .rating-stars {
+                font-size: 2em;
+            }
+            .rating-text {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .cta-section h2 {
+                font-size: 1.8em;
             }
         }
     </style>
 </head>
 <body>
-
     <header class="site-header">
         <div class="container">
             <a href="#" class="logo">Five10 Cafe</a>
-            <nav class="main-nav" aria-label="Main Navigation">
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <nav class="main-nav">
                 <ul>
                     <li><a href="#hero">Home</a></li>
-                    <li><a href="#benefits">Our Offerings</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#offerings">Our Menu</a></li>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#contact">Visit Us</a></li>
                 </ul>
             </nav>
         </div>
@@ -514,47 +513,69 @@
     <main>
         <section id="hero" class="hero">
             <div class="container">
-                <h1>Welcome to Five10 Cafe</h1>
-                <p>Experience the finest coffee, delightful bites, and a cozy ambiance in the heart of Kathmandu.</p>
-                <a href="#contact" class="btn">Contact Us Today</a>
+                <h1>Five10: The Pulse of Thabahi Sadak</h1>
+                <p>Experience the vibrant spirit of Kathmandu street food fused with a relaxed, creative atmosphere. Your perfect spot for coffee, culture, and connection.</p>
+                <a href="#offerings" class="button">Explore Our Offerings</a>
             </div>
         </section>
 
-        <section id="benefits" class="section">
+        <section id="offerings">
             <div class="container">
-                <h2>Why Choose Five10 Cafe?</h2>
-                <div class="benefits-grid">
-                    <article class="benefit-card">
-                        <h3 aria-label="Premium Coffee Blends">Exceptional Coffee</h3>
-                        <p>Sourced from the best regions, our coffee offers a rich and aromatic experience with every sip.</p>
+                <h2 class="section-title">Signature Flavors & Experiences</h2>
+                <div class="offerings-grid">
+                    <article class="offering-card">
+                        <h3>Momos with Lhasa Chili & Dried Plum Sauce</h3>
+                        <p>Our star attraction! Hand-folded dumplings, crafted before your eyes, served with a secret chili recipe brought straight from the Langtang Valley.</p>
                     </article>
-                    <article class="benefit-card">
-                        <h3 aria-label="Delicious Food Options">Delightful Menu</h3>
-                        <p>From light snacks to hearty meals, our menu is crafted to satisfy every palate.</p>
+                    <article class="offering-card">
+                        <h3>Tamarind Coconut Latte</h3>
+                        <p>A unique blend of our Langtang Valley micro-farm coffee with exotic tamarind and creamy coconut. A true taste of the Himalayas.</p>
                     </article>
-                    <article class="benefit-card">
-                        <h3 aria-label="Cozy and Inviting Atmosphere">Comfortable Ambiance</h3>
-                        <p>Relax in our beautifully designed space, perfect for work, meetings, or simply unwinding.</p>
+                    <article class="offering-card">
+                        <h3>Gundruk & Mutton Roti Wrap</h3>
+                        <p>A hearty, flavorful wrap featuring traditional fermented greens and tender mutton, encased in a freshly made roti.</p>
                     </article>
-                    <article class="benefit-card">
-                        <h3 aria-label="Friendly and Attentive Staff">Warm Hospitality</h3>
-                        <p>Our dedicated team is here to ensure your visit is enjoyable and memorable.</p>
+                    <article class="offering-card">
+                        <h3>Lemon Ginger Iced Tea with Himalayan Honey</h3>
+                        <p>Refreshing and invigorating, this iced tea is sweetened with pure Himalayan honey, perfect for a warm Kathmandu afternoon.</p>
+                    </article>
+                    <article class="offering-card">
+                        <h3>Live Momo-Making Station</h3>
+                        <p>Watch our artisans at work, skillfully folding fresh momos. A truly immersive culinary experience.</p>
+                    </article>
+                    <article class="offering-card">
+                        <h3>Langtang Valley Coffee</h3>
+                        <p>Sourced directly from a micro-farm, our coffee is roasted on-site, offering unparalleled freshness and unique flavor profiles.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="section">
+        <section id="about">
             <div class="container">
-                <h2>About Five10 Cafe</h2>
+                <h2 class="section-title">Our Story & Ambiance</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <h3>Your Neighborhood Gem in Kathmandu</h3>
-                        <p>Five10 Cafe is more than just a coffee shop; it's a community hub where quality meets comfort. Nestled in Thabahi Sadak, we pride ourselves on creating a welcoming environment for everyone.</p>
-                        <p>Whether you're starting your day with a freshly brewed espresso, catching up with friends over a delicious lunch, or finding a quiet corner to work, Five10 Cafe is your ideal destination. We are committed to providing an exceptional experience through our premium offerings and friendly service.</p>
+                        <p>Founded in 2020 by siblings who trekked the breathtaking Langtang Valley, Five10 Cafe was born from a dream: to fuse Kathmandu's vibrant street food energy with a relaxed, inspiring vibe. They brought back a secret Lhasa chili recipe and a vision of a community hub.</p>
+                        <p>More than just a cafe, Five10 is a creative workspace for Tribhuvan University students, a cultural haven for digital nomads, and a culinary adventure for Nepali food bloggers. We celebrate local artistry and flavors.</p>
                     </div>
-                    <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce7100b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjVlMjJ8MHwxfHNlYXJjaHwxMHx8Y2FmZSUyMGNvcHxlbnwwfHx8fDE2NzkwMTQyNTY&ixlib=rb-4.0.3&q=80&w=600" alt="A freshly brewed cup of coffee at Five10 Cafe">
+                    <div class="ambiance-details">
+                        <div class="ambiance-item">
+                            <h4>Unique Interior</h4>
+                            <p>Exposed terracotta brick walls, hand-woven Nepali textiles, and a living wall of Himalayan herbs create a warm, inviting space.</p>
+                        </div>
+                        <div class="ambiance-item">
+                            <h4>Acoustic Nights</h4>
+                            <p>Our corner stage hosts nightly acoustic performances, filling the air with local melodies and spoken word.</p>
+                        </div>
+                        <div class="ambiance-item">
+                            <h4>Aromatic Bliss</h4>
+                            <p>The comforting scent of freshly ground beans and steaming momos constantly fills the air, inviting you to linger.</p>
+                        </div>
+                        <div class="ambiance-item">
+                            <h4>Kathmandu Night</h4>
+                            <p>Join us monthly for 'Kathmandu Night,' featuring local musicians and poets, celebrating the rich culture of our city.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -562,50 +583,34 @@
 
         <section class="social-proof">
             <div class="container">
-                <h2>What Our Customers Say</h2>
-                <div class="rating-info">
-                    <p class="stars" aria-label="4.9 out of 5 stars">★★★★★</p>
-                    <p>Rated <strong>4.9/5</strong> based on <strong>166 reviews</strong></p>
-                    <p>Discover why Five10 Cafe is a favorite among locals and visitors alike.</p>
+                <h2 class="section-title">What Our Patrons Say</h2>
+                <div class="review-stats">
+                    <p class="rating-stars" aria-label="Rated 4.9 out of 5 stars">★★★★★</p>
+                    <p class="rating-text"><strong>4.9</strong> Rating across <strong>166</strong> Reviews</p>
                 </div>
+                <p>Loved by digital nomads, local foodies, and students alike, Five10 Cafe is a cherished spot in Thabahi Sadak.</p>
             </div>
         </section>
 
         <section class="cta-section">
             <div class="container">
-                <h2>Ready to Experience Five10 Cafe?</h2>
-                <p>Join us for a memorable experience. We look forward to serving you soon!</p>
-                <a href="#contact" class="btn">Contact Us</a>
+                <h2>Ready to Experience Five10?</h2>
+                <p>Whether you're looking for a quiet corner to work, a lively spot to meet friends, or simply the best momos in Kathmandu, Five10 Cafe awaits.</p>
+                <a href="#contact" class="button">Visit Us Today</a>
             </div>
         </section>
 
-        <section id="contact" class="section">
+        <section id="contact">
             <div class="container">
-                <h2>Get in Touch</h2>
-                <div class="contact-grid">
+                <h2 class="section-title">Connect With Us</h2>
+                <div class="contact-content">
                     <div class="contact-info">
-                        <h3>Our Location & Hours</h3>
-                        <p><strong>Address:</strong> Thabahi Sadak, Kathmandu, Bagmati Province 44600, Nepal</p>
-                        <p><strong>Phone:</strong> <a href="tel:+9779840177282">+977 984-0177282</a></p>
-                        <p><strong>Hours:</strong> Please call or visit for current operating hours.</p>
-                        <a href="https://maps.google.com/?q=Thabahi%20Sadak,%20Kathmandu,%20Bagmati%20Province%2044600,%20Nepal" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Get Directions</a>
+                        <h3>Our Location</h3>
+                        <p>Thabahi Sadak, Kathmandu, Bagmati Province 44600, Nepal</p>
+                        <h3>Reach Out</h3>
+                        <p>Phone: <a href="tel:+9779840177282">+977 984-0177282</a></p>
+                        <p>Email: <a href="mailto:info@five10cafe.com">info@five10cafe.com</a></p>
                     </div>
-                    <form class="contact-form" aria-label="Contact Form">
-                        <h3>Send Us a Message</h3>
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Your Name">
-
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="your@email.com">
-
-                        <label for="phone">Phone (Optional)</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+977 984-0177282">
-
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
-
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
                 </div>
             </div>
         </section>
@@ -614,9 +619,43 @@
     <footer class="site-footer">
         <div class="container">
             <p>&copy; 2023 Five10 Cafe. All rights reserved.</p>
-            <p>Thabahi Sadak, Kathmandu, Bagmati Province 44600, Nepal | Phone: <a href="tel:+9779840177282">+977 984-0177282</a></p>
+            <p>Made with passion in Kathmandu.</p>
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.querySelector('.nav-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            const navLinks = document.querySelectorAll('.main-nav a');
+
+            navToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+                const isExpanded = mainNav.classList.contains('active');
+                navToggle.setAttribute('aria-expanded', isExpanded);
+            });
+
+            // Close nav when a link is clicked (for mobile)
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
