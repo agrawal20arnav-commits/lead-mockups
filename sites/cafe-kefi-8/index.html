@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Kefi | From Himalayan Herbs to Your Cup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Base Styles */
+        :root {
+            --color-terracotta: #D27A4F;
+            --color-saffron: #FF8C00;
+            --color-slate-gray: #708090;
+            --color-emerald-green: #50C878;
+            --color-white: #ffffff;
+            --color-light-gray: #f5f5f5;
+            --color-dark-text: #333333;
+            --color-light-text: #666666;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--color-dark-text);
+            background-color: var(--color-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            margin-bottom: 0.8em;
+            color: var(--color-dark-text);
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 2.5em; }
+        h2 { font-size: 2em; }
+        h3 { font-size: 1.5em; }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        a {
+            color: var(--color-terracotta);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover, a:focus {
+            color: var(--color-saffron);
+            outline: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--color-terracotta);
+            color: var(--color-white);
+            padding: 0.8em 1.8em;
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95em;
+        }
+
+        .btn:hover, .btn:focus {
+            background-color: var(--color-saffron);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--color-dark-text);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-terracotta);
+            margin: 15px auto 0;
+        }
+
+        /* Header */
+        .site-header {
+            background-color: var(--color-white);
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--color-terracotta);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8em;
+            cursor: pointer;
+            color: var(--color-slate-gray);
+            padding: 5px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .main-nav a {
+            color: var(--color-slate-gray);
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-terracotta);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav a:hover::after, .main-nav a:focus::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1542826435-021966579294?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218fG5lcGFsaSBjYWZlLCBhcnQsdGhlYSUyMGZpZWxkfHx8fHx8MTY3ODkwNzY2Ng&ixlib=rb-4.0.3&q=80&w=1920') center center/cover no-repeat;
+            color: var(--color-white);
+            text-align: center;
+            padding: 6rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 70vh;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 0.5em;
+            color: var(--color-white);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 2em;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        /* Services/Offerings Section */
+        .offerings {
+            padding: 4rem 0;
+            background-color: var(--color-light-gray);
+        }
+
+        .offerings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .offering-card {
+            background-color: var(--color-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .offering-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .offering-card img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .offering-card-content {
+            padding: 1.5rem;
+        }
+
+        .offering-card h3 {
+            color: var(--color-terracotta);
+            margin-bottom: 0.5em;
+        }
+
+        .offering-card p {
+            font-size: 0.95em;
+            color: var(--color-light-text);
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 0;
+            background-color: var(--color-white);
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-text, .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .about-text h2 {
+            color: var(--color-terracotta);
+        }
+
+        .about-text p {
+            color: var(--color-light-text);
+            margin-bottom: 1.5em;
+        }
+
+        .about-text ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-bottom: 1.5em;
+            color: var(--color-light-text);
+        }
+
+        .about-text ul li {
+            margin-bottom: 0.5em;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            padding: 4rem 0;
+            background-color: var(--color-light-gray);
+            text-align: center;
+        }
+
+        .social-proof .rating-info {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--color-white);
+            padding: 1.2rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .social-proof .rating-info .stars {
+            color: var(--color-saffron);
+            font-size: 2em;
+            margin-right: 0.5em;
+            letter-spacing: 2px;
+        }
+
+        .social-proof .rating-info p {
+            font-size: 1.1em;
+            font-weight: 500;
+            color: var(--color-dark-text);
+            margin: 0;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background-color: var(--color-terracotta);
+            color: var(--color-white);
+            text-align: center;
+            padding: 3.5rem 1.5rem;
+        }
+
+        .cta-section h2 {
+            color: var(--color-white);
+            margin-bottom: 0.8em;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 2em;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 0;
+            background-color: var(--color-white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-info, .contact-form {
+            background-color: var(--color-light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .contact-info h3, .contact-form h3 {
+            color: var(--color-terracotta);
+            margin-bottom: 1.5em;
+        }
+
+        .contact-info p {
+            margin-bottom: 1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-light-text);
+        }
+
+        .contact-info p strong {
+            color: var(--color-dark-text);
+        }
+
+        .contact-info .icon {
+            color: var(--color-saffron);
+            font-size: 1.2em;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form label {
+            margin-bottom: 0.5em;
+            font-weight: 500;
+            color: var(--color-dark-text);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 0.8em;
+            margin-bottom: 1.5em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: var(--font-body);
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--color-terracotta);
+            box-shadow: 0 0 0 2px rgba(210, 122, 79, 0.2);
+            outline: none;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--color-slate-gray);
+            color: var(--color-white);
+            padding: 3rem 0;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .site-footer .container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .footer-nav ul {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-nav a {
+            color: var(--color-white);
+            font-weight: 300;
+            opacity: 0.8;
+        }
+
+        .footer-nav a:hover, .footer-nav a:focus {
+            color: var(--color-saffron);
+            opacity: 1;
+        }
+
+        .footer-info p {
+            margin-bottom: 0.5em;
+            opacity: 0.9;
+        }
+
+        .footer-info .social-links a {
+            font-size: 1.5em;
+            margin: 0 0.5em;
+            color: var(--color-white);
+            opacity: 0.8;
+            transition: opacity 0.3s ease, color 0.3s ease;
+        }
+
+        .footer-info .social-links a:hover {
+            opacity: 1;
+            color: var(--color-saffron);
+        }
+
+        /* Utility classes for icons (simple text-based for demo) */
+        .icon-phone::before { content: "📞 "; }
+        .icon-map::before { content: "📍 "; }
+        .icon-star::before { content: "⭐"; }
+        .icon-clock::before { content: "⏰ "; }
+        .icon-facebook::before { content: "f"; font-family: 'Arial', sans-serif;} /* Placeholder for actual icon font */
+        .icon-instagram::before { content: "📸"; } /* Placeholder for actual icon font */
+        .icon-twitter::before { content: "🐦"; } /* Placeholder for actual icon font */
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8em; }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.3em; }
+
+            .hero {
+                padding: 4rem 1rem;
+                min-height: 60vh;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                width: 100%;
+                order: 2;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-in-out;
+                flex-basis: 100%;
+            }
+
+            .main-nav.active {
+                max-height: 200px; /* Adjust based on content */
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+                background-color: var(--color-white);
+                border-top: 1px solid #eee;
+            }
+
+            .main-nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .main-nav a {
+                display: block;
+                padding: 0.8rem 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .main-nav a::after {
+                display: none;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-image {
+                order: -1; /* Image appears above text on mobile */
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .btn {
+                padding: 0.7em 1.5em;
+                font-size: 0.9em;
+            }
+
+            .rating-info {
+                flex-direction: column;
+                padding: 1rem 1.5rem !important;
+            }
+
+            .rating-info .stars {
+                margin-right: 0 !important;
+                margin-bottom: 0.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="#" class="logo">Cafe Kefi</a>
+            <button class="nav-toggle" aria-controls="main-navigation" aria-expanded="false">☰</button>
+            <nav class="main-nav" id="main-navigation">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#offerings">Menu</a></li>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1>Cafe Kefi</h1>
+                <p>From Himalayan Herbs to Your Cup</p>
+                <a href="#offerings" class="btn">Explore Our Menu</a>
+            </div>
+        </section>
+
+        <section id="offerings" class="offerings">
+            <div class="container">
+                <h2 class="section-title">Our Signature Offerings</h2>
+                <div class="offerings-grid">
+                    <article class="offering-card">
+                        <img src="https://images.unsplash.com/photo-1579958190777-6262446f2549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218fHRlYSUyMGxhdHRlLCBjYXJkYW1vbSwgY2hpbGk&ixlib=rb-4.0.3&q=80&w=400" alt="Gorkha Spiced Latte">
+                        <div class="offering-card-content">
+                            <h3>Gorkha Spiced Latte</h3>
+                            <p>A bold blend of black tea, aromatic cardamom, and a hint of smoked chili for a warming, unique kick.</p>
+                        </div>
+                    </article>
+                    <article class="offering-card">
+                        <img src="https://images.unsplash.com/photo-1594917631317-a06803274291?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218fGR1bXBsZWluZ3MsIGhlcmJzLCBjb3BwZXIgYm93bHxlbnwwfHx8fHwxNjc4OTA3NjY2&ixlib=rb-4.0.3&q=80&w=400" alt="Panchamukhi Momo Bowl">
+                        <div class="offering-card-content">
+                            <h3>Panchamukhi Momo Bowl</h3>
+                            <p>Tender Nepali dumplings infused with five distinct Himalayan herbs, served elegantly in a traditional copper bowl.</p>
+                        </div>
+                    </article>
+                    <article class="offering-card">
+                        <img src="https://images.unsplash.com/photo-1627993498858-a5323a6b8252?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218fHNhZmZyb24lMjBsYXR0ZSwgYWxtb25kJTIwbWlsaywgaG9uZXl8ZW58MHx8fHwxNjc4OTA3NjY2&ixlib=rb-4.0.3&q=80&w=400" alt="Lalitpur Saffron Latte">
+                        <div class="offering-card-content">
+                            <h3>Lalitpur Saffron Latte</h3>
+                            <p>A luxurious blend of organic saffron, creamy almond milk, and a touch of local honey for a delicate sweetness.</p>
+                        </div>
+                    </article>
+                    <article class="offering-card">
+                        <img src="https://images.unsplash.com/photo-1558229983-c286e00b213b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218fHRlYSUyMGZyYXBwZSwgYWxtb25kcywgbGltZSUyMGplc3R8ZW58MHx8fHwxNjc4OTA3NjY2&ixlib=rb-4.0.3&q=80&w=400" alt="Tibetan Tea-Infused Almond Frappe">
+                        <div class="offering-card-content">
+                            <h3>Tibetan Tea-Infused Almond Frappe</h3>
+                            <p>A refreshing frappe with mild Tibetan tea, crunchy crushed almonds, and a zesty twist of lime.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">Our Story, Your Experience</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Cafe Kefi was founded by Chef Sita Gurung, who returned to Kathmandu after a decade honing her craft in France. Inspired by the serene 7th-century Kefi monastery murals, she envisioned a place where traditional Nepali spices could dance with refined European café techniques.</p>
+                        <p>Our café sits on a terraced balcony overlooking the Kathmandu Valley, offering a breathtaking vista. Stone walls carved with intricate mandala patterns and a vibrant living wall of native orchids create a serene atmosphere. Here, soft Himalayan flute music gently intermixes with the distant chatter of street vendors, crafting a truly unique soundscape.</p>
+                        <p>Natural light floods our space through stunning stained-glass panels depicting local folklore, casting a warm, contemplative glow. We are a haven for young professionals seeking a productive yet culturally rich workspace, students craving authentic Nepali flavors, and international tourists eager for a taste of Kathmandu’s culinary heritage.</p>
+                        <h3>Our Unique Selling Points:</h3>
+                        <ul>
+                            <li><strong>Handcrafted Beverages:</strong> Using locally sourced spices and teas collected from the hills of Gorkha and Lamjung.</li>
+                            <li><strong>On-Site Roasted Coffee:</strong> Coffee beans roasted by a Nepalese artisan, ensuring a fresh, single-origin experience.</li>
+                            <li><strong>Interactive AR Menu:</strong> Scan our menu with your smartphone to reveal the origin story of each ingredient.</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1563227814-e1b9a7f3f6c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218fGthdGhtYW5kdSUyMGNhZmUsIHRlcnJhY2UsIG9yY2hpZHM&ixlib=rb-4.0.3&q=80&w=600" alt="Cafe Kefi ambiance with terraced balcony">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="social-proof">
+            <div class="container">
+                <h2 class="section-title">What Our Guests Say</h2>
+                <div class="rating-info">
+                    <span class="stars">★★★★☆</span>
+                    <p><strong>4.6 out of 5 stars</strong> from 116 reviews</p>
+                </div>
+                <p style="margin-top: 1.5rem; color: var(--color-light-text);">"A delightful blend of tradition and innovation. Come experience the magic!"</p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Experience Cafe Kefi?</h2>
+                <p>Immerse yourself in Kathmandu's culinary heritage. We look forward to welcoming you to our unique sanctuary.</p>
+                <a href="#contact" class="btn">Contact Us</a>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Visit or Call Us</h3>
+                        <p><span class="icon-map"></span> <strong>Address:</strong> Paknajol Marg, Kathmandu, Bagmati Province 44600, Nepal</p>
+                        <p><span class="icon-phone"></span> <strong>Phone:</strong> <a href="tel:+9779840501178">+977 984-0501178</a></p>
+                        <p><span class="icon-clock"></span> <strong>Hours:</strong> Open Daily, 9 AM - 8 PM</p>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form action="#" method="POST">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#offerings">Menu</a></li>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2023 Cafe Kefi. All rights reserved.</p>
+                <p>From Himalayan Herbs to Your Cup</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><span class="icon-facebook"></span></a>
+                    <a href="#" aria-label="Instagram"><span class="icon-instagram"></span></a>
+                    <a href="#" aria-label="Twitter"><span class="icon-twitter"></span></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.querySelector('.nav-toggle');
+            const mainNav = document.getElementById('main-navigation');
+
+            navToggle.addEventListener('click', () => {
+                const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                navToggle.setAttribute('aria-expanded', !isExpanded);
+                mainNav.classList.toggle('active');
+            });
+
+            // Close mobile nav when a link is clicked
+            mainNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNav.classList.contains('active')) {
+                        navToggle.setAttribute('aria-expanded', 'false');
+                        mainNav.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
