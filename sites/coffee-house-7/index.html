@@ -1,25 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee House - Premium Brews & Cozy Ambiance</title>
-    <meta name="description" content="Experience the finest coffee and a welcoming atmosphere at Coffee House. Your perfect spot for relaxation and quality brews in Kathmandu.">
+    <title>Coffee House - Sip the Summit, One Brew at a Time</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #6F4E37; /* Coffee Brown */
-            --secondary-color: #A0522D; /* Sienna */
-            --accent-color: #FFD700; /* Gold for highlights */
-            --text-dark: #333;
-            --text-light: #f9f9f9;
-            --bg-light: #fdfaf6;
-            --bg-dark: #2c1a12;
-            --border-color: #ddd;
-            --font-heading: 'Merriweather', serif;
-            --font-body: 'Open Sans', sans-serif;
+            --color-terracotta: #A86F3E;
+            --color-slate-gray: #4B5D67;
+            --color-jade-green: #8FA56B;
+            --color-white: #ffffff;
+            --color-light-gray: #f8f8f8;
+            --color-dark-text: #333333;
+            --color-light-text: #666666;
         }
 
         /* Base Reset & Typography */
@@ -34,99 +30,78 @@
         }
 
         body {
-            font-family: var(--font-body);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-dark-text);
             line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            background-color: var(--color-light-gray);
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-heading);
-            color: var(--primary-color);
+            font-family: 'Lora', serif;
+            color: var(--color-slate-gray);
             margin-bottom: 0.8em;
-            line-height: 1.2;
         }
 
-        h1 { font-size: 2.8em; }
+        h1 { font-size: 2.8em; line-height: 1.1; }
         h2 { font-size: 2.2em; }
         h3 { font-size: 1.8em; }
         p { margin-bottom: 1em; }
 
         a {
-            color: var(--secondary-color);
+            color: var(--color-terracotta);
             text-decoration: none;
-            transition: color 0.3s ease, background-color 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         a:hover, a:focus {
-            color: var(--primary-color);
-            outline: none;
+            color: var(--color-slate-gray);
+            outline: 2px solid var(--color-terracotta);
+            outline-offset: 2px;
         }
 
         /* Utility Classes */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1.5em;
+            padding: 1.5rem;
         }
 
         .text-center { text-align: center; }
-        .text-left { text-align: left; }
-        .text-right { text-align: right; }
 
         .btn {
             display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--text-light);
-            padding: 0.9em 2em;
+            background-color: var(--color-terracotta);
+            color: var(--color-white);
+            padding: 0.8rem 1.8rem;
             border-radius: 5px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 1px;
             transition: background-color 0.3s ease, transform 0.2s ease;
             border: none;
             cursor: pointer;
-            font-size: 1em;
+            font-size: 1rem;
         }
 
         .btn:hover, .btn:focus {
-            background-color: var(--primary-color);
+            background-color: #8C5B30; /* Darker terracotta */
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            padding: 0.8em 1.8em;
-        }
-
-        .btn-outline:hover, .btn-outline:focus {
-            background-color: var(--primary-color);
-            color: var(--text-light);
+            outline: 2px solid var(--color-terracotta);
+            outline-offset: 2px;
         }
 
         .section-padding {
-            padding: 4em 0;
-        }
-
-        .bg-primary-gradient {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: var(--text-light);
+            padding: 4rem 0;
         }
 
         /* Header & Navigation */
         .site-header {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            padding: 1em 0;
+            background-color: var(--color-white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .site-header .container {
@@ -137,22 +112,22 @@
         }
 
         .logo {
-            font-family: var(--font-heading);
+            font-family: 'Lora', serif;
             font-size: 1.8em;
             font-weight: 700;
-            color: var(--accent-color);
+            color: var(--color-slate-gray);
         }
 
         .main-nav ul {
             list-style: none;
             display: flex;
-            gap: 1.5em;
+            gap: 1.5rem;
         }
 
         .main-nav a {
-            color: var(--text-light);
+            color: var(--color-slate-gray);
             font-weight: 600;
-            padding: 0.5em 0;
+            padding: 0.5rem 0;
             position: relative;
         }
 
@@ -163,7 +138,7 @@
             bottom: 0;
             width: 0;
             height: 2px;
-            background-color: var(--accent-color);
+            background-color: var(--color-terracotta);
             transition: width 0.3s ease;
         }
 
@@ -173,552 +148,512 @@
 
         /* Hero Section */
         .hero {
-            background: url('https://images.unsplash.com/photo-1511920170033-f8396924c348?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjVlMjJ8MHwxfHNlYXJjaHwzfHxjb2ZmZWUlMjBzaG9wJTIwY296eXxlbnwwfHx8fDE2NzkwNzI0NTE&ixlib=rb-4.0.3&q=80&w=1920') no-repeat center center/cover;
-            color: var(--text-light);
-            padding: 8em 0;
+            background: linear-gradient(rgba(75, 93, 103, 0.7), rgba(75, 93, 103, 0.7)), url('https://images.unsplash.com/photo-1511920170033-f8396924c348?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTQ4NzF8MHwxfHNlYXJjaHw0fHxjb2ZmZWUlMjBjYWZlJTIwbmVwYWxpfGVufDB8fHx8MTY5MDQyNDg3MHww&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
+            color: var(--color-white);
             text-align: center;
-            position: relative;
+            padding: 6rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-
-        .hero .container {
-            position: relative;
-            z-index: 2;
+        .hero-content {
+            max-width: 800px;
         }
 
         .hero h1 {
+            color: var(--color-white);
             font-size: 3.5em;
             margin-bottom: 0.5em;
-            color: var(--accent-color);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero p {
             font-size: 1.3em;
-            margin-bottom: 2em;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            margin-bottom: 2rem;
+            font-weight: 300;
         }
 
-        .hero .btn {
-            font-size: 1.1em;
-            padding: 1em 2.5em;
+        /* Services / Signature Items */
+        .signature-items {
+            background-color: var(--color-white);
         }
 
-        /* Services/Benefits Section */
-        .services {
-            padding: 4em 0;
-            background-color: var(--bg-light);
-        }
-
-        .services h2 {
-            text-align: center;
-            margin-bottom: 2em;
-            color: var(--primary-color);
-        }
-
-        .service-grid {
+        .signature-items .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2em;
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .service-item {
-            background-color: #fff;
-            padding: 2em;
+        .item-card {
+            background-color: var(--color-light-gray);
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-top: 5px solid var(--secondary-color);
         }
 
-        .service-item:hover {
+        .item-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
         }
 
-        .service-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.8em;
-            font-size: 1.5em;
+        .item-card h3 {
+            color: var(--color-terracotta);
+            margin-bottom: 0.8rem;
         }
 
-        .service-item p {
-            color: #555;
+        .item-card p {
+            color: var(--color-light-text);
+            font-size: 0.95em;
         }
 
         /* About Section */
-        .about {
-            background-color: #f8f8f8;
-            padding: 5em 0;
+        .about-us {
+            background-color: #FDF9F6; /* Light background to contrast */
         }
 
         .about-content {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 2.5rem;
             align-items: center;
-            gap: 2em;
         }
 
-        .about-text {
+        .about-text, .about-image {
             flex: 1;
             min-width: 300px;
         }
 
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
+        .about-text h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--color-light-text);
+            margin-bottom: 1.2rem;
         }
 
         .about-image img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
-        /* Social Proof Section */
+        .ambiance-description {
+            background-color: var(--color-jade-green);
+            color: var(--color-white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        .ambiance-description h3 {
+            color: var(--color-white);
+            margin-bottom: 1rem;
+        }
+        .ambiance-description p {
+            color: var(--color-white);
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        /* Unique Selling Points */
+        .usp-section {
+            background-color: var(--color-slate-gray);
+            color: var(--color-white);
+        }
+
+        .usp-section h2 {
+            color: var(--color-white);
+        }
+
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .usp-card {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+        .usp-card:hover {
+            background-color: rgba(255,255,255,0.15);
+        }
+
+        .usp-card h3 {
+            color: var(--color-terracotta);
+            margin-bottom: 0.8rem;
+        }
+
+        .usp-card p {
+            color: var(--color-white);
+            font-size: 0.95em;
+        }
+
+        /* Social Proof */
         .social-proof {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 4em 0;
+            background-color: var(--color-light-gray);
             text-align: center;
         }
 
-        .social-proof h2 {
-            color: var(--accent-color);
-            margin-bottom: 1.5em;
-        }
-
-        .rating-info {
+        .social-proof .rating-info {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 1em;
-            margin-bottom: 1.5em;
+            gap: 1rem;
+            margin-top: 2rem;
             flex-wrap: wrap;
         }
 
-        .rating-info .stars {
+        .star-rating {
             font-size: 2.5em;
-            color: var(--accent-color);
+            color: gold;
+            letter-spacing: -2px;
         }
 
-        .rating-info p {
-            font-size: 1.4em;
-            font-weight: 600;
+        .social-proof p {
+            font-size: 1.1em;
+            color: var(--color-light-text);
         }
 
-        /* Call to Action Section */
+        /* CTA Section */
         .cta-section {
-            background-color: var(--secondary-color);
-            color: var(--text-light);
-            padding: 4em 0;
+            background-color: var(--color-terracotta);
+            color: var(--color-white);
             text-align: center;
+            padding: 4rem 1.5rem;
         }
 
         .cta-section h2 {
-            color: var(--accent-color);
-            margin-bottom: 0.8em;
+            color: var(--color-white);
             font-size: 2.5em;
+            margin-bottom: 1rem;
         }
 
         .cta-section p {
             font-size: 1.2em;
-            margin-bottom: 2em;
+            margin-bottom: 2rem;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
 
         /* Contact Section */
-        .contact {
-            padding: 5em 0;
-            background-color: var(--bg-light);
-        }
-
-        .contact h2 {
-            text-align: center;
-            margin-bottom: 2em;
+        .contact-us {
+            background-color: var(--color-white);
         }
 
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2em;
-            margin-bottom: 3em;
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .contact-item {
-            background-color: #fff;
-            padding: 2em;
+        .contact-info, .contact-form {
+            background-color: var(--color-light-gray);
+            padding: 2.5rem;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            border-bottom: 5px solid var(--primary-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
-        .contact-item h3 {
-            color: var(--secondary-color);
-            margin-bottom: 0.5em;
-            font-size: 1.4em;
+        .contact-info h3, .contact-form h3 {
+            color: var(--color-slate-gray);
+            margin-bottom: 1.5rem;
         }
 
-        .contact-item p {
-            margin-bottom: 0;
-            color: #555;
+        .contact-info p {
+            margin-bottom: 0.8em;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--color-dark-text);
+        }
+        .contact-info p strong {
+            color: var(--color-terracotta);
         }
 
-        .contact-item a {
-            color: var(--primary-color);
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .contact-form label {
             font-weight: 600;
-        }
-
-        .contact-form-wrapper {
-            max-width: 700px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 2.5em;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .contact-form h3 {
-            text-align: center;
-            margin-bottom: 1.5em;
-            color: var(--primary-color);
-        }
-
-        .form-group {
-            margin-bottom: 1.5em;
-        }
-
-        .form-group label {
+            color: var(--color-slate-gray);
+            margin-bottom: 0.3rem;
             display: block;
-            margin-bottom: 0.5em;
-            font-weight: 600;
-            color: var(--text-dark);
         }
 
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group input[type="tel"],
-        .form-group textarea {
+        .contact-form input,
+        .contact-form textarea {
             width: 100%;
-            padding: 0.8em;
-            border: 1px solid var(--border-color);
+            padding: 0.8rem;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            font-family: var(--font-body);
+            font-family: 'Montserrat', sans-serif;
             font-size: 1em;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 0 3px rgba(var(--secondary-color), 0.2);
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--color-terracotta);
+            box-shadow: 0 0 0 3px rgba(168, 111, 62, 0.2);
             outline: none;
         }
 
-        .form-group textarea {
+        .contact-form textarea {
             min-height: 120px;
             resize: vertical;
         }
 
+        .contact-form .btn {
+            align-self: flex-start;
+            margin-top: 1rem;
+        }
+
         /* Footer */
         .site-footer {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            padding: 3em 0;
+            background-color: var(--color-slate-gray);
+            color: var(--color-white);
+            padding: 2rem 0;
             text-align: center;
-        }
-
-        .site-footer .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5em;
-        }
-
-        .footer-nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1.5em;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .footer-nav a {
-            color: var(--text-light);
-            font-weight: 400;
-        }
-
-        .footer-nav a:hover, .footer-nav a:focus {
-            color: var(--accent-color);
-        }
-
-        .footer-info p {
-            margin-bottom: 0.5em;
             font-size: 0.9em;
-            color: rgba(255, 255, 255, 0.7);
         }
 
-        .footer-info a {
-            color: var(--accent-color);
+        .site-footer p {
+            margin-bottom: 0.5rem;
         }
 
-        /* Accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--accent-color);
-            color: var(--primary-color);
-            padding: 8px;
-            z-index: 9999;
-            transition: top 0.3s ease;
+        .site-footer a {
+            color: var(--color-jade-green);
+        }
+        .site-footer a:hover {
+            color: var(--color-terracotta);
         }
 
-        .skip-link:focus {
-            top: 0;
+        /* Icons for contact info (simple unicode/emoji for demo) */
+        .icon-phone::before { content: "📞 "; }
+        .icon-map::before { content: "📍 "; }
+        .icon-mail::before { content: "✉️ "; }
+
+        /* Responsive Adjustments */
+        @media (min-width: 768px) {
+            h1 { font-size: 4em; }
+            h2 { font-size: 2.8em; }
+            .hero { padding: 8rem 1.5rem; }
+            .hero p { font-size: 1.5em; }
+
+            .about-content {
+                flex-direction: row;
+            }
+            .about-text {
+                padding-right: 2rem;
+            }
+            .about-image {
+                padding-left: 2rem;
+            }
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2em; }
-            h2 { font-size: 1.8em; }
-            h3 { font-size: 1.4em; }
-
+        @media (max-width: 767px) {
             .site-header .container {
                 flex-direction: column;
-                gap: 1em;
+                gap: 1rem;
             }
-
             .main-nav ul {
                 flex-direction: column;
-                gap: 0.8em;
+                gap: 0.8rem;
+                width: 100%;
                 text-align: center;
-                padding: 1em 0;
             }
-
-            .hero {
-                padding: 6em 0;
+            .main-nav a {
+                padding: 0.5rem 0;
+                display: block;
             }
-
             .hero h1 {
                 font-size: 2.5em;
             }
-
             .hero p {
                 font-size: 1.1em;
             }
-
-            .about-content {
-                flex-direction: column;
+            .section-padding {
+                padding: 3rem 0;
             }
-
-            .service-item, .contact-item {
-                margin-bottom: 1.5em;
-            }
-
-            .cta-section h2 {
-                font-size: 2em;
-            }
-
-            .cta-section p {
-                font-size: 1em;
-            }
-
-            .contact-form-wrapper {
-                padding: 1.5em;
-            }
-
-            .footer-nav ul {
-                flex-direction: column;
-                gap: 0.8em;
+            .contact-info, .contact-form {
+                padding: 2rem;
             }
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 1em;
-            }
-
-            h1 { font-size: 1.8em; }
-            h2 { font-size: 1.6em; }
-            h3 { font-size: 1.2em; }
-
-            .hero {
-                padding: 4em 0;
-            }
-
-            .hero h1 {
-                font-size: 2em;
-            }
-
-            .hero p {
-                font-size: 0.9em;
-            }
-
-            .btn {
-                padding: 0.8em 1.5em;
-                font-size: 0.9em;
-            }
-
-            .rating-info .stars {
-                font-size: 2em;
-            }
-
-            .rating-info p {
-                font-size: 1.2em;
-            }
+        /* Accessibility: Focus states */
+        .btn:focus,
+        .main-nav a:focus,
+        .site-footer a:focus,
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: 2px solid var(--color-jade-green);
+            outline-offset: 3px;
         }
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <header class="site-header">
         <div class="container">
             <a href="#" class="logo">Coffee House</a>
-            <nav class="main-nav" aria-label="Main Navigation">
+            <nav class="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="#hero">Home</a></li>
-                    <li><a href="#services">Our Offerings</a></li>
+                    <li><a href="#offerings">Our Brews</a></li>
                     <li><a href="#about">About Us</a></li>
+                    <li><a href="#usp">Experience</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main id="main-content">
+    <main>
+        <!-- Hero Section -->
         <section id="hero" class="hero">
-            <div class="container">
-                <h1>Taste the Perfection at Coffee House</h1>
-                <p>Your daily escape for premium coffee, delightful treats, and a cozy atmosphere right in the heart of Kathmandu.</p>
-                <a href="#contact" class="btn">Book an Appointment</a>
+            <div class="hero-content">
+                <h1>Sip the Summit, One Brew at a Time</h1>
+                <p>Discover authentic Nepali coffee blends and a touch of Himalayan heritage in the heart of Kathmandu.</p>
+                <a href="#offerings" class="btn">Explore Our Menu</a>
             </div>
         </section>
 
-        <section id="services" class="services section-padding">
-            <div class="container">
-                <h2 class="text-center">Our Premium Offerings</h2>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <h3>Artisan Coffee</h3>
-                        <p>Discover a curated selection of ethically sourced beans, expertly roasted and brewed to perfection.</p>
+        <!-- Signature Items / Offerings Section -->
+        <section id="offerings" class="signature-items section-padding">
+            <div class="container text-center">
+                <h2>Our Signature Brews & Bites</h2>
+                <p>Crafted with passion, inspired by Nepal's rich culinary traditions.</p>
+                <div class="grid">
+                    <div class="item-card">
+                        <h3>Mughal Masala Latte</h3>
+                        <p>A regal blend of rich espresso infused with aromatic spices, reminiscent of ancient trade routes.</p>
                     </div>
-                    <div class="service-item">
-                        <h3>Delicious Pastries</h3>
-                        <p>Pair your coffee with freshly baked pastries, cakes, and light bites made with local ingredients.</p>
+                    <div class="item-card">
+                        <h3>Ghumti Ghee Espresso</h3>
+                        <p>A robust espresso shot elevated with clarified butter, offering a unique creamy texture and deep flavor.</p>
                     </div>
-                    <div class="service-item">
-                        <h3>Cozy Ambiance</h3>
-                        <p>Relax in our inviting space, perfect for work, meetings, or simply unwinding with a good book.</p>
+                    <div class="item-card">
+                        <h3>Tibetan Tea Cappuccino</h3>
+                        <p>Our unique take on a classic, blending black tea, milk, and a hint of salt, crowned with frothy foam.</p>
                     </div>
-                    <div class="service-item">
-                        <h3>Friendly Baristas</h3>
-                        <p>Our passionate team is dedicated to providing exceptional service and crafting your perfect beverage.</p>
+                    <div class="item-card">
+                        <h3>Kathmandu Kheer Paratha</h3>
+                        <p>A sweet, creamy rice pudding stuffed into a flaky paratha, perfect for a delightful morning or evening treat.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="about section-padding">
+        <!-- About / Business Section -->
+        <section id="about" class="about-us section-padding">
             <div class="container">
                 <div class="about-content">
                     <div class="about-text">
-                        <h2>About Coffee House</h2>
-                        <p>Nestled in Tridevi Sadak, Kathmandu, Coffee House is more than just a cafe – it's a community hub where quality meets comfort. We believe in the power of a great cup of coffee to brighten your day and bring people together.</p>
-                        <p>From our meticulously prepared espresso drinks to our serene environment, every detail is designed to enhance your experience. Join us and discover your new favorite spot.</p>
-                        <a href="#contact" class="btn-outline">Learn More</a>
+                        <h2>Our Story: A Revival of Heritage</h2>
+                        <p>Founded in 2017 by Maya Gurung, Coffee House is more than just a café; it's a re-imagined piece of history. Maya, a Nepali expatriate, returned to Kathmandu with a vision: to revive her family’s 19th-century teahouse.</p>
+                        <p>She meticulously salvaged the original hand-turned wooden espresso machine, a testament to generations of craftsmanship, and transformed the space into a modern hub for coffee lovers. Our café bridges the past and present, offering a unique blend of tradition and contemporary comfort.</p>
+                        <div class="ambiance-description">
+                            <h3>Our Ambiance</h3>
+                            <p>Step into a space where Kathmandu’s storied temples meet Scandinavian design. Carved wooden panels adorn the walls, complementing clean lines and a central stone hearth that crackles softly. A living wall of vibrant ferns and orchids purifies the air, providing a serene green backdrop for quiet reflection or collaborative work. It's an inspiring study spot that whispers Himalayan heritage.</p>
+                        </div>
                     </div>
                     <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjVlMjJ8MHwxfHNlYXJjaHw3fHxjb2ZmZWUlMjBjdXAlMjBjbG9zZXVwfGVufDB8fHx8MTY3OTA3MjQ3Mw&ixlib=rb-4.0.3&q=80&w=600" alt="A steaming cup of coffee on a wooden table">
+                        <img src="https://images.unsplash.com/photo-1577968817730-d3a9034f89d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTQ4NzF8MHwxfHNlYXJjaHw3fHxjb2ZmZWUlMjBjYWZlJTIwZGVzaWdufGVufDB8fHx8MTY5MDQyNDg3MHww&ixlib=rb-4.0.3&q=80&w=1080" alt="Interior of a cozy cafe with wooden elements and plants">
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Unique Selling Points Section -->
+        <section id="usp" class="usp-section section-padding">
+            <div class="container text-center">
+                <h2>Our Unique Experience</h2>
+                <p>More than just coffee, it's a journey through Nepali culture and craftsmanship.</p>
+                <div class="usp-grid">
+                    <div class="usp-card">
+                        <h3>Annapurna Sourced Beans</h3>
+                        <p>Hand-roasted beans sourced directly from single-plot farms in the majestic Annapurna region, ensuring unparalleled quality and traceability.</p>
+                    </div>
+                    <div class="usp-card">
+                        <h3>Nepali Coffee Mastery</h3>
+                        <p>Our in-house barista apprenticeship program meticulously crafts traditional Nepali coffee techniques, preserving and evolving local artistry.</p>
+                    </div>
+                    <div class="usp-card">
+                        <h3>Live Acoustic Nights</h3>
+                        <p>Every Friday, immerse yourself in the soulful melodies of local folk musicians and captivating storytelling sessions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof Area -->
         <section class="social-proof section-padding">
             <div class="container">
                 <h2>Loved by Our Community</h2>
                 <div class="rating-info">
-                    <div class="stars" aria-label="4.5 out of 5 stars">
-                        ★★★★☆
-                    </div>
-                    <p>4.5 Star Rating based on 64 Reviews</p>
+                    <span class="star-rating" aria-label="4.5 out of 5 stars">★★★★☆</span>
+                    <p><strong>4.5 / 5 Stars</strong> based on 64 reviews</p>
                 </div>
-                <p>We are proud of the positive feedback from our valued customers.</p>
+                <p class="text-center" style="margin-top: 2rem;">"A quiet yet inspiring study spot that offers authentic Nepali coffee blends and a touch of Himalayan heritage."</p>
+                <p class="text-center" style="font-style: italic;">(Excerpt from a customer review)</p>
             </div>
         </section>
 
-        <section class="cta-section section-padding">
+        <!-- CTA Section -->
+        <section class="cta-section">
             <div class="container">
-                <h2>Ready for Your Perfect Coffee Moment?</h2>
-                <p>Whether you're looking for a quick pick-me-up or a place to unwind, Coffee House is here for you.</p>
-                <a href="tel:+9779865369123" class="btn">Call Now</a>
+                <h2>Ready for Your Next Great Coffee?</h2>
+                <p>Join us for a unique coffee experience that blends tradition with modern comfort. We're open and ready to welcome you!</p>
+                <a href="#contact" class="btn">Contact Us</a>
             </div>
         </section>
 
-        <section id="contact" class="contact section-padding">
+        <!-- Contact Section -->
+        <section id="contact" class="contact-us section-padding">
             <div class="container">
-                <h2>Get In Touch</h2>
+                <h2 class="text-center">Get in Touch</h2>
+                <p class="text-center">We'd love to hear from you. Reach out to us or visit our cozy spot.</p>
                 <div class="contact-grid">
-                    <div class="contact-item">
-                        <h3>Visit Us</h3>
-                        <p>Tridevi Sadak, Kathmandu</p>
-                        <p>Bagmati Province 44600, Nepal</p>
-                        <p><a href="https://maps.app.goo.gl/YourGoogleMapsLink" target="_blank" rel="noopener noreferrer">Get Directions</a></p>
+                    <div class="contact-info">
+                        <h3>Our Details</h3>
+                        <p class="icon-phone"><strong>Phone:</strong> <a href="tel:+9779865369123">+977 986-5369123</a></p>
+                        <p class="icon-map"><strong>Address:</strong> Tridevi Sadak, Kathmandu, Bagmati Province 44600, Nepal</p>
+                        <p class="icon-mail"><strong>Email:</strong> <a href="mailto:info@coffeehouse.com">info@coffeehouse.com</a></p>
+                        <p><strong>Opening Hours:</strong> Mon-Sun: 7 AM - 9 PM</p>
                     </div>
-                    <div class="contact-item">
-                        <h3>Call Us</h3>
-                        <p>Have questions or want to order ahead?</p>
-                        <p><a href="tel:+9779865369123">+977 986-5369123</a></p>
-                    </div>
-                    <div class="contact-item">
-                        <h3>Hours</h3>
-                        <p>Monday - Friday: 8:00 AM - 8:00 PM</p>
-                        <p>Saturday - Sunday: 9:00 AM - 7:00 PM</p>
-                    </div>
-                </div>
-
-                <div class="contact-form-wrapper">
-                    <form class="contact-form" aria-label="Contact Form">
+                    <div class="contact-form">
                         <h3>Send Us a Message</h3>
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required aria-required="true">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required aria-required="true">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone (Optional)</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
+                        <form action="#" method="POST">
+                            <div>
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required aria-label="Your Name">
+                            </div>
+                            <div>
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required aria-label="Your Email Address">
+                            </div>
+                            <div>
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required aria-label="Your Message"></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -726,21 +661,11 @@
 
     <footer class="site-footer">
         <div class="container">
-            <p class="logo">Coffee House</p>
-            <nav class="footer-nav" aria-label="Footer Navigation">
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#services">Offerings</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="footer-info">
-                <p>&copy; 2023 Coffee House. All rights reserved.</p>
-                <p>Tridevi Sadak, Kathmandu, Bagmati Province 44600, Nepal</p>
-                <p>Call Us: <a href="tel:+9779865369123">+977 986-5369123</a></p>
-            </div>
+            <p>&copy; 2023 Coffee House. All rights reserved.</p>
+            <p>Tridevi Sadak, Kathmandu, Bagmati Province 44600, Nepal</p>
+            <p><a href="tel:+9779865369123">+977 986-5369123</a></p>
         </div>
     </footer>
+
 </body>
 </html>
