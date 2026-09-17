@@ -3,767 +3,568 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ananda Tree House - Your Serene Escape</title>
+    <title>Ananda Tree House - Blissful Bites, Rooted in Kathmandu</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #4CAF50; /* A pleasant green */
-            --secondary-color: #388E3C; /* Darker green for accents */
-            --accent-color: #FFC107; /* Gold for highlights */
-            --text-dark: #333;
-            --text-light: #666;
-            --background-light: #f9f9f9;
-            --background-white: #ffffff;
-            --border-color: #e0e0e0;
-            --shadow-light: rgba(0, 0, 0, 0.05);
-            --shadow-medium: rgba(0, 0, 0, 0.1);
-            --focus-outline: 2px solid var(--accent-color);
+            --color-forest-green: #2E8B57;
+            --color-terracotta: #D2691E;
+            --color-saffron: #FF9933;
+            --color-cream: #F5F5DC;
+            --color-dark-text: #333;
+            --color-light-text: #fff;
+            --font-primary: 'Merriweather', serif;
+            --font-secondary: 'Open Sans', sans-serif;
+            --spacing-unit: 1rem;
         }
 
-        /* Base Reset & Typography */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Base & Typography */
         html {
             scroll-behavior: smooth;
         }
-
         body {
-            font-family: 'Raleway', sans-serif;
+            font-family: var(--font-secondary);
             line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--background-white);
+            margin: 0;
+            background-color: var(--color-cream);
+            color: var(--color-dark-text);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 0.8em;
-            color: var(--text-dark);
+        h1, h2, h3 {
+            font-family: var(--font-primary);
+            color: var(--color-forest-green);
+            margin-top: 0;
             line-height: 1.2;
         }
-
-        h1 { font-size: 2.5em; }
-        h2 { font-size: 2em; }
-        h3 { font-size: 1.75em; }
-        p { margin-bottom: 1em; }
-
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        p { margin-bottom: var(--spacing-unit); }
         a {
-            color: var(--primary-color);
+            color: var(--color-terracotta);
             text-decoration: none;
-            transition: color 0.3s ease, background-color 0.3s ease;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
         }
-
         a:hover, a:focus {
-            color: var(--secondary-color);
-            outline: none;
-        }
-        
-        a:focus-visible {
-            outline: var(--focus-outline);
-            outline-offset: 2px;
+            color: var(--color-saffron);
+            text-decoration: underline;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        ul {
-            list-style: none;
-        }
-
+        /* Layout */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1.5rem;
+            padding: calc(var(--spacing-unit) * 1.5);
         }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.8em 1.8em;
-            border-radius: 5px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            border: none;
-            cursor: pointer;
+        section {
+            padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 1.5);
             text-align: center;
         }
-
-        .btn:hover, .btn:focus {
-            background-color: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            padding: 0.7em 1.7em;
-        }
-
-        .btn-outline:hover, .btn-outline:focus {
-            background-color: var(--primary-color);
-            color: white;
+        section:nth-of-type(even) {
+            background-color: rgba(var(--color-terracotta), 0.05);
         }
 
         /* Header */
-        .site-header {
-            background-color: var(--background-white);
-            padding: 1rem 0;
-            box-shadow: var(--shadow-light);
+        header {
+            background-color: var(--color-forest-green);
+            color: var(--color-light-text);
+            padding: var(--spacing-unit) 0;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
-        .site-header .container {
+        header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
         }
-
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8em;
+            font-family: var(--font-primary);
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary-color);
-            margin-right: 1rem;
+            color: var(--color-cream);
+            text-decoration: none;
+            flex-shrink: 0;
         }
-
-        .main-nav ul {
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
             display: flex;
-            gap: 1.5rem;
             flex-wrap: wrap;
-            justify-content: center;
+            gap: calc(var(--spacing-unit) * 1.5);
         }
-
-        .main-nav a {
-            font-weight: 500;
-            color: var(--text-dark);
+        nav a {
+            color: var(--color-cream);
+            font-weight: 600;
             padding: 0.5rem 0;
             position: relative;
         }
-
-        .main-nav a::after {
+        nav a::after {
             content: '';
             position: absolute;
-            bottom: 0;
             left: 0;
+            bottom: 0;
             width: 0;
             height: 2px;
-            background-color: var(--primary-color);
+            background-color: var(--color-saffron);
             transition: width 0.3s ease;
         }
-
-        .main-nav a:hover::after, .main-nav a:focus::after {
+        nav a:hover::after, nav a:focus::after {
             width: 100%;
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1507525428034-b723cf961fac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTIyMjh8MHwxfHNlYXJjaHw1fHx0cmVlJTIwaG91c2UlMjBuZXBhbHxlbnwwfHx8fDE3MDI2NjQ5NjN8MA&ixlib=rb-4.0.3&q=80&w=1920') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 8rem 1.5rem;
-            min-height: 70vh;
+            background: linear-gradient(rgba(46, 139, 87, 0.7), rgba(46, 139, 87, 0.7)), url('https://source.unsplash.com/random/1600x900/?nepal-food,treehouse') no-repeat center center/cover;
+            color: var(--color-cream);
+            padding: calc(var(--spacing-unit) * 8) calc(var(--spacing-unit) * 1.5);
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
+            min-height: 80vh;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.4);
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.7) 100%);
-            z-index: 1;
-        }
-
         .hero-content {
-            position: relative;
-            z-index: 2;
             max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 3em;
-            margin-bottom: 0.5em;
-            color: white;
-        }
-
-        .hero p {
-            font-size: 1.3em;
-            margin-bottom: 2em;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero .btn {
-            font-size: 1.1em;
-            padding: 1em 2.5em;
-        }
-
-        /* Section Styling */
-        .section-padding {
-            padding: 4rem 0;
-        }
-
-        .section-dark {
-            background-color: var(--background-light);
-        }
-
-        .section-heading {
             text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
+        }
+        .hero h1 {
+            color: var(--color-saffron);
+            font-size: 3.5rem;
+            margin-bottom: var(--spacing-unit);
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            font-weight: 400;
+            color: var(--color-cream);
         }
 
-        .section-heading h2 {
-            font-size: 2.5em;
+        /* Buttons */
+        .btn {
             display: inline-block;
-            position: relative;
-            padding-bottom: 0.3em;
+            background-color: var(--color-terracotta);
+            color: var(--color-light-text);
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn:hover, .btn:focus {
+            background-color: var(--color-saffron);
+            transform: translateY(-2px);
+            color: var(--color-light-text);
+            text-decoration: none;
+            outline: none;
+        }
+        .btn-secondary {
+            background-color: var(--color-forest-green);
+        }
+        .btn-secondary:hover, .btn-secondary:focus {
+            background-color: var(--color-terracotta);
         }
 
-        .section-heading h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
-        }
-
-        /* Services/Benefits */
-        .services-grid {
+        /* Services/Offerings */
+        .offerings-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: calc(var(--spacing-unit) * 2);
+            margin-top: calc(var(--spacing-unit) * 3);
+            text-align: left;
         }
-
-        .service-item {
-            background-color: var(--background-white);
-            padding: 2rem;
+        .offering-card {
+            background-color: var(--color-light-text);
             border-radius: 8px;
-            box-shadow: var(--shadow-light);
-            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding: calc(var(--spacing-unit) * 2);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-top: 5px solid var(--primary-color);
         }
-
-        .service-item:hover {
+        .offering-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+        .offering-card h3 {
+            color: var(--color-terracotta);
+            margin-bottom: var(--spacing-unit);
+            font-size: 1.3rem;
+        }
+        .offering-card p {
+            font-size: 0.95rem;
+            color: var(--color-dark-text);
+            flex-grow: 1;
+        }
+        .offering-card .icon {
+            font-size: 2rem;
+            color: var(--color-saffron);
+            margin-bottom: var(--spacing-unit);
         }
 
-        .service-item h3 {
-            font-size: 1.5em;
-            color: var(--primary-color);
-            margin-bottom: 0.8em;
+        /* About/Story */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: calc(var(--spacing-unit) * 3);
+            text-align: left;
+            margin-top: calc(var(--spacing-unit) * 3);
         }
-
-        .service-item p {
-            color: var(--text-light);
+        .about-text, .about-image {
+            flex: 1;
+            min-width: 300px;
         }
-
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        .about-content h3 {
-            color: var(--primary-color);
-            font-size: 1.8em;
-            margin-bottom: 0.5em;
-        }
-
-        .about-content p {
-            margin-bottom: 1.5em;
-            color: var(--text-light);
-        }
-
         .about-image {
+            background: url('https://source.unsplash.com/random/600x400/?nepal-treehouse-interior') no-repeat center center/cover;
             border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow-medium);
+            min-height: 300px;
         }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            min-height: 250px;
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: calc(var(--spacing-unit) * 2);
+            margin-top: calc(var(--spacing-unit) * 3);
+            text-align: left;
+        }
+        .usp-item {
+            background-color: var(--color-light-text);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: calc(var(--spacing-unit) * 1.5);
+            border-left: 5px solid var(--color-forest-green);
+            transition: border-color 0.3s ease;
+        }
+        .usp-item:hover {
+            border-left-color: var(--color-saffron);
+        }
+        .usp-item h3 {
+            font-size: 1.2rem;
+            color: var(--color-forest-green);
+            margin-bottom: 0.5rem;
+        }
+        .usp-item p {
+            font-size: 0.9rem;
+            color: var(--color-dark-text);
         }
 
         /* Social Proof */
-        .social-proof-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
+        .social-proof {
+            background-color: var(--color-forest-green);
+            color: var(--color-cream);
+        }
+        .social-proof h2 {
+            color: var(--color-saffron);
+        }
+        .rating-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-unit);
+            margin-top: calc(var(--spacing-unit) * 2);
+            font-size: 1.2rem;
+        }
+        .stars {
+            color: var(--color-saffron);
+            font-size: 1.5rem;
         }
 
-        .proof-item {
-            background-color: var(--background-white);
-            padding: 2rem;
+        /* CTA */
+        .cta {
+            background-color: var(--color-saffron);
+            color: var(--color-dark-text);
+            padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 1.5);
+        }
+        .cta h2 {
+            color: var(--color-dark-text);
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
+        }
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: calc(var(--spacing-unit) * 2);
+            margin-top: calc(var(--spacing-unit) * 3);
+            text-align: left;
+        }
+        .contact-info {
+            background-color: var(--color-light-text);
             border-radius: 8px;
-            box-shadow: var(--shadow-light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: calc(var(--spacing-unit) * 2);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-        }
-
-        .proof-item h3 {
-            font-size: 2.5em;
-            color: var(--primary-color);
-            margin-bottom: 0.2em;
-        }
-
-        .proof-item p {
-            font-weight: 500;
-            color: var(--text-dark);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-size: 0.9em;
-        }
-
-        .stars {
-            color: var(--accent-color);
-            font-size: 1.5em;
-            margin-bottom: 0.5em;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--primary-color);
-            color: white;
             text-align: center;
-            padding: 4rem 1.5rem;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
         }
-
-        .cta-section h2 {
-            color: white;
-            font-size: 2.2em;
-            margin-bottom: 1em;
-        }
-
-        .cta-section .btn {
-            background-color: white;
-            color: var(--primary-color);
-            padding: 1em 2.5em;
-            font-size: 1.1em;
-        }
-
-        .cta-section .btn:hover, .cta-section .btn:focus {
-            background-color: var(--accent-color);
-            color: white;
-        }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-        }
-
-        .contact-info {
-            background-color: var(--background-white);
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow-light);
-        }
-
         .contact-info h3 {
-            color: var(--primary-color);
-            margin-bottom: 1.5em;
-            font-size: 1.8em;
+            color: var(--color-forest-green);
+            margin-bottom: var(--spacing-unit);
         }
-
-        .contact-info ul {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .contact-info li {
-            display: flex;
-            align-items: center;
-            gap: 1em;
-            color: var(--text-dark);
-            font-size: 1.1em;
-        }
-
-        .contact-info li svg {
-            color: var(--primary-color);
-            font-size: 1.5em;
-            flex-shrink: 0;
-        }
-
-        .contact-form {
-            background-color: var(--background-white);
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow-light);
-        }
-
-        .contact-form h3 {
-            color: var(--primary-color);
-            margin-bottom: 1.5em;
-            font-size: 1.8em;
-        }
-
-        .form-group {
-            margin-bottom: 1.5em;
-        }
-
-        .form-group label {
+        .contact-info a {
+            color: var(--color-dark-text);
             display: block;
-            margin-bottom: 0.5em;
+            margin-bottom: 0.5rem;
             font-weight: 600;
-            color: var(--text-dark);
         }
-
-        .form-group input,
-        .form-group textarea {
+        .contact-info a:hover {
+            color: var(--color-terracotta);
+        }
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+        .contact-form {
+            background-color: var(--color-light-text);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: calc(var(--spacing-unit) * 2);
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--color-forest-green);
+            text-align: left;
+        }
+        .contact-form input,
+        .contact-form textarea {
             width: 100%;
-            padding: 0.8em;
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            font-family: 'Raleway', sans-serif;
-            font-size: 1em;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            padding: 0.8rem;
+            margin-bottom: var(--spacing-unit);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: var(--font-secondary);
+            font-size: 1rem;
+            box-sizing: border-box; /* Ensures padding doesn't increase width */
         }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--color-terracotta);
             outline: none;
+            box-shadow: 0 0 0 2px rgba(var(--color-terracotta), 0.2);
         }
-
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .contact-form .btn {
+        .contact-form button {
             width: 100%;
-            padding: 1em;
-            font-size: 1.1em;
         }
 
         /* Footer */
-        .site-footer {
-            background-color: var(--text-dark);
-            color: white;
-            padding: 3rem 0;
+        footer {
+            background-color: var(--color-dark-text);
+            color: var(--color-cream);
+            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 1.5);
             text-align: center;
+            font-size: 0.9rem;
+        }
+        footer p {
+            margin: 0;
+        }
+        footer a {
+            color: var(--color-saffron);
         }
 
-        .site-footer .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8em;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .footer-nav ul {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .footer-nav a {
-            color: white;
-            font-weight: 400;
-        }
-
-        .footer-nav a:hover, .footer-nav a:focus {
-            color: var(--primary-color);
-        }
-
-        .footer-info p {
-            margin-bottom: 0.5em;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95em;
-        }
-
-        .footer-info a {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .footer-info a:hover, .footer-info a:focus {
-            color: var(--primary-color);
-        }
-
-        /* Accessibility: Skip Link */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--accent-color);
-            color: var(--text-dark);
-            padding: 8px;
-            z-index: 999;
-            transition: top 0.3s ease;
-        }
-
-        .skip-link:focus {
-            top: 0;
-        }
-
-        /* Responsive Adjustments */
-        @media (min-width: 768px) {
-            h1 { font-size: 3.5em; }
-            h2 { font-size: 2.8em; }
-            h3 { font-size: 2em; }
-
-            .site-header .container {
-                flex-wrap: nowrap;
+        /* Accessibility & Responsiveness */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.7rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            header .container {
+                flex-direction: column;
+                gap: var(--spacing-unit);
             }
-
-            .main-nav {
-                margin-left: auto;
+            nav ul {
+                justify-content: center;
+                gap: var(--spacing-unit);
             }
-            .main-nav ul {
-                flex-wrap: nowrap;
-            }
-
-            .hero {
-                padding: 10rem 1.5rem;
-            }
-
-            .hero h1 {
-                font-size: 4.5em;
-            }
-
-            .about-grid, .contact-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
             .about-content {
-                order: 1; /* Text first on larger screens */
+                flex-direction: column;
             }
-
             .about-image {
-                order: 2; /* Image second on larger screens */
+                min-height: 250px;
             }
-
-            .cta-section h2 {
-                font-size: 2.8em;
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
         }
-
-        @media (min-width: 1024px) {
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
             .container {
-                padding: 1.5rem 0;
+                padding: var(--spacing-unit);
             }
-
-            .hero {
-                padding: 12rem 0;
-            }
-
-            .hero h1 {
-                font-size: 5em;
+            section {
+                padding: calc(var(--spacing-unit) * 3) var(--spacing-unit);
             }
         }
 
-        /* SVG Icons (Font Awesome-like) */
+        /* Simple Icons */
         .icon {
-            width: 1.2em;
-            height: 1.2em;
+            display: inline-block;
+            margin-right: 0.5rem;
             vertical-align: middle;
-            fill: currentColor;
         }
+        .icon.star::before { content: '★'; }
+        .icon.phone::before { content: '📞'; }
+        .icon.location::before { content: '📍'; }
+        .icon.email::before { content: '✉️'; }
+        .icon.dumpling::before { content: '🥟'; }
+        .icon.coffee::before { content: '☕'; }
+        .icon.dessert::before { content: '🍮'; }
+        .icon.samosa::before { content: '🥟'; /* Reusing dumpling for samosa */ }
+        .icon.leaf::before { content: '🌿'; }
+        .icon.spice::before { content: '🌶️'; }
+        .icon.music::before { content: '🎶'; }
+
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <header class="site-header">
+    <header>
         <div class="container">
-            <a href="#hero" class="logo">Ananda Tree House</a>
-            <nav class="main-nav" aria-label="Main Navigation">
+            <a href="#" class="logo">Ananda Tree House</a>
+            <nav aria-label="Main Navigation">
                 <ul>
                     <li><a href="#hero">Home</a></li>
-                    <li><a href="#services">Features</a></li>
-                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#offerings">Our Menu</a></li>
+                    <li><a href="#about">Our Story</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main id="main-content">
+    <main>
         <section id="hero" class="hero">
             <div class="hero-content">
-                <h1>Experience Serenity at Ananda Tree House</h1>
-                <p>Your tranquil escape nestled in the heart of Kathmandu, offering a unique blend of comfort and nature.</p>
-                <a href="tel:+9779808991305" class="btn">Call Now: +977 980-8991305</a>
+                <h1>Ananda Tree House</h1>
+                <p>Blissful Bites, Rooted in Kathmandu</p>
+                <a href="#offerings" class="btn">Explore Our Menu</a>
             </div>
         </section>
 
-        <section id="services" class="section-padding">
+        <section id="offerings" class="offerings">
             <div class="container">
-                <div class="section-heading">
-                    <h2>Our Unique Offerings</h2>
-                </div>
-                <div class="services-grid">
-                    <div class="service-item">
-                        <h3>Peaceful Location</h3>
-                        <p>Escape the city bustle in our calm, natural surroundings.</p>
+                <h2>Our Signature Creations</h2>
+                <p>Experience authentic Nepalese flavors reimagined with a modern, sustainable twist.</p>
+                <div class="offerings-grid">
+                    <div class="offering-card">
+                        <span class="icon dumpling" aria-hidden="true"></span>
+                        <h3>Kathmandu Karma Dumplings</h3>
+                        <p>Spicy yak-butter momos with a hint of lime zest, a true taste of the Himalayas.</p>
                     </div>
-                    <div class="service-item">
-                        <h3>Comfortable Stays</h3>
-                        <p>Well-appointed spaces designed for relaxation and rejuvenation.</p>
+                    <div class="offering-card">
+                        <span class="icon coffee" aria-hidden="true"></span>
+                        <h3>Jute Bean Latte</h3>
+                        <p>Locally sourced jute bean milk with aromatic cardamom foam, a unique energy boost.</p>
                     </div>
-                    <div class="service-item">
-                        <h3>Local Charm</h3>
-                        <p>Immerse yourself in the vibrant culture of Boudha and Kathmandu.</p>
+                    <div class="offering-card">
+                        <span class="icon dessert" aria-hidden="true"></span>
+                        <h3>Gur Kheer</h3>
+                        <p>Silky sugarcane-milk pudding with roasted almonds, a sweet end to any meal.</p>
                     </div>
-                    <div class="service-item">
-                        <h3>Exceptional Service</h3>
-                        <p>Our dedicated team ensures a memorable and pleasant visit for every guest.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="section-padding section-dark">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>About Ananda Tree House</h2>
-                </div>
-                <div class="about-grid">
-                    <div class="about-content">
-                        <h3>A Retreat in Kathmandu</h3>
-                        <p>Ananda Tree House offers a distinctive experience in Kathmandu. Located conveniently near the bustling Boudha Road, we provide a peaceful haven away from the city's rush while keeping you connected to its vibrant energy.</p>
-                        <p>Our establishment is designed to blend seamlessly with its natural surroundings, offering a refreshing atmosphere for both short and long stays. We pride ourselves on creating an environment where guests can relax, explore, and feel at home.</p>
-                        <a href="#contact" class="btn-outline">Learn More</a>
-                    </div>
-                    <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1549726244-67253a6a111a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTIyMjh8MHwxfHNlYXJjaHw3fHx0cmVlJTIwaG91c2UlMjBhcmNoaXRlY3R1cmV8ZW58MHx8fHwxNzA1MjQ5NTUzfDA&ixlib=rb-4.0.3&q=80&w=600" alt="Generic image of a beautiful building in nature">
+                    <div class="offering-card">
+                        <span class="icon samosa" aria-hidden="true"></span>
+                        <h3>Tamarind Tofu Samosas</h3>
+                        <p>Crispy lotus-seed-filled pastries served with a tangy tamarind-ginger chutney.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="social-proof" class="section-padding">
+        <section id="about" class="about">
             <div class="container">
-                <div class="section-heading">
-                    <h2>What Our Guests Say</h2>
+                <h2>Our Story: Where Culinary Roots Meet Modern Branches</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Ananda Tree House was founded by a Nepali chef who returned from culinary school in Europe, bringing a global perspective to local traditions. His inspiration? A cherished childhood memory of his grandmother’s treehouse kitchen, where the scent of simmering lentils mingled with the whisper of leaves.</p>
+                        <p>We've created a unique space where the interior blends bamboo lattice with Himalayan stone, forming a canopy of green that filters the bustling city noise. Our small courtyard of native orchids and hanging herbs provides a fragrant backdrop, while subtle lanterns cast a warm, earthy glow. Live acoustic performances by local musicians play softly, inviting diners to linger and savor both food and sound.</p>
+                        <p>We aim to share the secret of blending local ingredients with global techniques, turning every bite into a story.</p>
+                    </div>
+                    <div class="about-image" role="img" aria-label="Interior of Ananda Tree House with bamboo and stone elements"></div>
                 </div>
-                <div class="social-proof-grid">
-                    <div class="proof-item">
-                        <div class="stars" role="img" aria-label="4.7 out of 5 stars">
-                            ★★★★☆
-                        </div>
-                        <h3>4.7</h3>
-                        <p>Overall Rating</p>
+
+                <h3 style="margin-top: calc(var(--spacing-unit) * 4); color: var(--color-terracotta);">What Makes Us Unique</h3>
+                <div class="usp-grid">
+                    <div class="usp-item">
+                        <span class="icon leaf" aria-hidden="true"></span>
+                        <h3>Rooftop Greenhouse</h3>
+                        <p>Our solar-powered rooftop greenhouse supplies fresh herbs and microgreens for every dish, ensuring peak freshness and sustainability.</p>
                     </div>
-                    <div class="proof-item">
-                        <h3>269</h3>
-                        <p>Guest Reviews</p>
+                    <div class="usp-item">
+                        <span class="icon spice" aria-hidden="true"></span>
+                        <h3>Personalized Spice Blends</h3>
+                        <p>Experience on-demand 3D-printed personalized spice blends, tailored precisely to each guest’s palate for a truly unique flavor.</p>
                     </div>
-                    <div class="proof-item">
-                        <h3>B</h3>
-                        <p>Tier Classification</p>
-                    </div>
-                    <div class="proof-item">
-                        <h3>5</h3>
-                        <p>Quality Score</p>
+                    <div class="usp-item">
+                        <span class="icon music" aria-hidden="true"></span>
+                        <h3>Cultural Storytelling Nights</h3>
+                        <p>Join us for weekly storytelling nights featuring local poets and musicians, blending culinary and cultural experiences into one unforgettable evening.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="cta-section">
+        <section id="social-proof" class="social-proof">
             <div class="container">
-                <h2>Ready for Your Next Getaway?</h2>
-                <p>Discover the peace and comfort awaiting you at Ananda Tree House.</p>
-                <a href="tel:+9779808991305" class="btn">Call Us Today</a>
+                <h2>Our Guests Love Us</h2>
+                <p>Don't just take our word for it—see what our community says!</p>
+                <div class="rating-info">
+                    <span class="stars" aria-label="4.7 out of 5 stars">★★★★☆</span>
+                    <span><strong>4.7 / 5</strong> rating from <strong>269 reviews</strong></span>
+                </div>
             </div>
         </section>
 
-        <section id="contact" class="section-padding">
+        <section id="cta" class="cta">
             <div class="container">
-                <div class="section-heading">
-                    <h2>Get in Touch</h2>
-                </div>
+                <h2>Ready to Experience Ananda Tree House?</h2>
+                <p>Discover the perfect blend of tradition and innovation. Your culinary journey awaits.</p>
+                <a href="#contact" class="btn btn-secondary">Contact Us Today</a>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
                 <div class="contact-grid">
                     <div class="contact-info">
-                        <h3>Contact Details</h3>
-                        <ul>
-                            <li>
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <path d="M12 12c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-10c-3.31 0-6 2.69-6 6 0 4.52 4.84 10.74 5.56 11.53.25.28.64.28.89 0C13.16 20.74 18 14.52 18 8c0-3.31-2.69-6-6-6zm0 14c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
-                                </svg>
-                                <address>Opposite Mangaldvip Boarding School, Phulbari- Ramhiti, 6 Boudha Rd, Kathmandu 44600, Nepal</address>
-                            </li>
-                            <li>
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.01.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.28-.27.36-.66.25-1.01C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
-                                </svg>
-                                <a href="tel:+9779808991305">+977 980-8991305</a>
-                            </li>
-                            <li>
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                                </svg>
-                                <a href="mailto:info@anandatreehouse.com">info@anandatreehouse.com</a>
-                            </li>
-                        </ul>
+                        <h3>Visit Us</h3>
+                        <p><span class="icon location" aria-hidden="true"></span> Opposite Mangaldvip Boarding School, Phulbari- Ramhiti, 6 Boudha Rd, Kathmandu 44600, Nepal</p>
+                        <h3>Call Us</h3>
+                        <a href="tel:+9779808991305"><span class="icon phone" aria-hidden="true"></span> +977 980-8991305</a>
                     </div>
                     <div class="contact-form">
                         <h3>Send Us a Message</h3>
                         <form action="#" method="POST">
-                            <div class="form-group">
-                                <label for="name">Your Name</label>
-                                <input type="text" id="name" name="name" required aria-label="Your Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Your Email</label>
-                                <input type="email" id="email" name="email" required aria-label="Your Email">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Your Message</label>
-                                <textarea id="message" name="message" required aria-label="Your Message"></textarea>
-                            </div>
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required aria-label="Your Name">
+
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required aria-label="Your Email">
+
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required aria-label="Your Message"></textarea>
+
                             <button type="submit" class="btn">Send Message</button>
                         </form>
                     </div>
@@ -772,22 +573,10 @@
         </section>
     </main>
 
-    <footer class="site-footer">
+    <footer>
         <div class="container">
-            <a href="#hero" class="footer-logo">Ananda Tree House</a>
-            <nav class="footer-nav" aria-label="Footer Navigation">
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#services">Features</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="footer-info">
-                <p>&copy; 2023 Ananda Tree House. All rights reserved.</p>
-                <p>Located at: Opposite Mangaldvip Boarding School, Phulbari- Ramhiti, 6 Boudha Rd, Kathmandu 44600, Nepal</p>
-                <p>Call us: <a href="tel:+9779808991305">+977 980-8991305</a></p>
-            </div>
+            <p>&copy; 2023 Ananda Tree House. All rights reserved.</p>
+            <p>Crafted with love in Kathmandu.</p>
         </div>
     </footer>
 </body>
