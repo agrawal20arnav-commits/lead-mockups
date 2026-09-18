@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Butter Mellow | Quietly Elegant Flavors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5A9E9A;
+            --neutral-base: #F5F5F5;
+            --accent-color: #D8A47B;
+            --text-dark: #222;
+            --text-light: #fff;
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 40px;
+            --spacing-xl: 64px;
+            --spacing-xxl: 96px;
+            --spacing-xxxl: 128px;
+        }
+
+        /* Base styles */
+        html {
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+        }
+        *, *::before, *::after {
+            box-sizing: inherit;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--neutral-base);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Georgia', serif;
+            margin-top: 0;
+            line-height: 1.2;
+            color: var(--primary-color);
+        }
+        h1 { font-size: 36px; }
+        h2 { font-size: 32px; }
+        h3 { font-size: 24px; }
+        p { font-size: 16px; margin-bottom: var(--spacing-md); }
+
+        @media (min-width: 768px) {
+            h1 { font-size: 56px; }
+            h2 { font-size: 40px; }
+            h3 { font-size: 28px; }
+            p { font-size: 18px; }
+        }
+
+        /* Layout & Spacing */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        section {
+            padding: var(--spacing-xxl) 0;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .section-header {
+            margin-bottom: var(--spacing-xl);
+            text-align: left;
+        }
+        .section-header h2 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Header */
+        .site-header {
+            position: fixed;
+            width: 100%;
+            background-color: var(--neutral-base);
+            padding: var(--spacing-md) 0;
+            z-index: 1000;
+            transition: border-bottom 0.3s ease-in-out;
+        }
+        .site-header.scrolled {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Georgia', serif;
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+        .main-nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.2s ease;
+            font-size: 16px;
+        }
+        .main-nav a:hover, .main-nav a:focus {
+            color: var(--accent-color);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-dark);
+            transition: all 0.3s ease-in-out;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+        @media (max-width: 767px) {
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--neutral-base);
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                padding: var(--spacing-md) 0;
+            }
+            .main-nav.open {
+                display: block;
+            }
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--spacing-sm);
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 2px solid var(--primary-color);
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn:hover, .btn:focus {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--text-light);
+            outline: none;
+        }
+        .btn.btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+        .btn.btn-outline:hover, .btn.btn-outline:focus {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+        .btn-group {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            overflow: hidden;
+            padding-top: 80px; /* Account for fixed header */
+        }
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Subtle dark overlay */
+            z-index: 2;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+            padding: var(--spacing-md);
+        }
+        .hero h1 {
+            font-size: 44px; /* Default for mobile */
+            color: var(--text-light);
+            margin-bottom: var(--spacing-lg);
+        }
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 72px;
+            }
+        }
+        .hero .btn {
+            margin-top: var(--spacing-lg);
+        }
+
+        /* Highlights Strip */
+        .highlights-strip {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+        }
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+        @media (min-width: 768px) {
+            .highlights-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .highlight-item h3 {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-sm);
+            font-size: 20px;
+        }
+        .highlight-item p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .about-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* Menu Section */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xl);
+        }
+        @media (min-width: 768px) {
+            .menu-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .menu-category {
+            padding-bottom: var(--spacing-lg);
+        }
+        .menu-category h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-lg);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: var(--spacing-sm);
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px dashed rgba(0,0,0,0.1);
+        }
+        .menu-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .menu-item-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-family: 'Georgia', serif;
+            font-size: 18px;
+        }
+        .menu-item-description {
+            flex-grow: 1;
+            margin-left: var(--spacing-sm);
+            font-size: 15px;
+            color: #555;
+            text-align: right; /* Align description to the right */
+        }
+        @media (max-width: 767px) {
+            .menu-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .menu-item-description {
+                margin-left: 0;
+                margin-top: var(--spacing-xs);
+                text-align: left;
+            }
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: var(--spacing-md);
+        }
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .gallery-grid .item:nth-child(even) {
+                grid-row: span 2; /* Make some images taller for editorial feel */
+            }
+        }
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 4px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Differentiators Section */
+        .differentiators-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xl);
+        }
+        @media (min-width: 768px) {
+            .differentiators-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .differentiator-item h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+            font-size: 20px;
+        }
+        .differentiator-item p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            text-align: center;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: var(--spacing-xl) 0;
+        }
+        .social-proof p {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+        .star-icon {
+            width: 24px;
+            height: 24px;
+            fill: var(--accent-color);
+            vertical-align: middle;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .contact-info p {
+            margin-bottom: var(--spacing-sm);
+            font-size: 18px;
+        }
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .contact-info a:hover {
+            color: var(--accent-color);
+        }
+        .map-placeholder {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: var(--spacing-xl);
+            border-radius: 4px;
+            text-align: center;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .map-placeholder p {
+            font-size: 18px;
+            margin: var(--spacing-sm) 0;
+        }
+        .map-placeholder .btn {
+            margin-top: var(--spacing-md);
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--text-dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+            font-size: 14px;
+        }
+        .site-footer p {
+            margin: var(--spacing-xs) 0;
+            font-size: 14px;
+        }
+
+        /* Accessibility */
+        .btn:focus, .main-nav a:focus, .logo:focus, .hamburger:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .site-header, .btn, .main-nav a, .gallery-item img, section {
+                transition: none !important;
+            }
+            section {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .gallery-item:hover img {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="#" class="logo">Butter Mellow</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-background" role="img" aria-label="Cafe interior with natural light and wooden furnishings"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Quietly Elegant Flavors</h1>
+                <a href="#menu" class="btn">View Our Menu</a>
+            </div>
+        </section>
+
+        <section class="highlights-strip">
+            <div class="container highlights-grid">
+                <div class="highlight-item">
+                    <h3>Locally Sourced</h3>
+                    <p>Our butter and ingredients are carefully selected from local producers.</p>
+                </div>
+                <div class="highlight-item">
+                    <h3>Handcrafted Daily</h3>
+                    <p>Each pastry is made from scratch every morning with meticulous care.</p>
+                </div>
+                <div class="highlight-item">
+                    <h3>Seamless Experience</h3>
+                    <p>Enjoy easy online ordering and convenient curbside pickup.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2>About Butter Mellow</h2>
+                </div>
+                <div class="about-content">
+                    <div>
+                        <p>Butter Mellow was founded by a former pastry chef who returned to Pokhara after years in Kathmandu, driven by a vision to create a quiet retreat for locals and visitors alike. Our studio is a testament to the art of baking, where traditional techniques meet refined flavors.</p>
+                        <p>Our interior features floor-to-ceiling windows overlooking Pokhara's serene lakeside, inviting natural light and calming views. Natural wood furnishings and subdued lighting create an atmosphere of tranquility, perfect for a moment of quiet indulgence. The comforting scent of fresh butter and baked goods fills the air, promising an experience of simple elegance.</p>
+                        <p>We believe in the power of quality ingredients, which is why we meticulously source the finest local butter and other components. Every item on our menu is a handcrafted expression of our commitment to exceptional taste and a relaxed dining experience.</p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80" alt="Elegant cafe interior with wooden tables and chairs" class="about-image" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Offerings</h2>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-category">
+                        <h3>Pastries & Bakes</h3>
+                        <div class="menu-item">
+                            <span class="menu-item-name">Dark Chocolate Croissant</span>
+                            <span class="menu-item-description">Flaky layers with rich, bittersweet chocolate.</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-item-name">Almond Butter Scone</span>
+                            <span class="menu-item-description">Buttery scone with a delicate almond flavor.</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-item-name">Cardamom Honey Loaf</span>
+                            <span class="menu-item-description">Fragrant loaf cake with warm spice and sweet honey.</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-item-name">Lavender Butter Cookie</span>
+                            <span class="menu-item-description">Delicate shortbread infused with aromatic lavender.</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-item-name">Seasonal Fruit Tart</span>
+                            <span class="menu-item-description">Fresh fruits on a crisp, buttery crust.</span>
+                        </div>
+                    </div>
+                    <div class="menu-category">
+                        <h3>Beverages</h3>
+                        <div class="menu-item">
+                            <span class="menu-item-name">Espresso</span>
+                            <span class="menu-item-description">Rich, concentrated coffee shot.</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-item-name">Cappuccino</span>
+                            <span class="menu-item-description">Espresso with steamed milk and foam.</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-item-name">Latte</span>
+                            <span class="menu-item-description">Smooth espresso with generous steamed milk.</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-item-name">Nepali Black Tea</span>
+                            <span class="menu-item-description">Locally sourced, robust black tea.</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-item-name">Herbal Infusion</span>
+                            <span class="menu-item-description">Calming blend of local herbs.</span>
+                        </div>
+                    </div>
+                    <div class="menu-category">
+                        <h3>Light Bites</h3>
+                        <div class="menu-item">
+                            <span class="menu-item-name">Avocado Toast</span>
+                            <span class="menu-item-description">Smashed avocado on artisanal sourdough.</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-item-name">Smoked Salmon Bagel</span>
+                            <span class="menu-item-description">Cream cheese, capers, and dill on a toasted bagel.</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-item-name">Quiche Lorraine</span>
+                            <span class="menu-item-description">Savory custard tart with bacon and cheese.</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-item-name">Yogurt Parfait</span>
+                            <span class="menu-item-description">Layers of Greek yogurt, granola, and fresh berries.</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-item-name">Garden Salad</span>
+                            <span class="menu-item-description">Mixed greens with a light vinaigrette.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Gallery</h2>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item item">
+                        <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=1600&q=80" alt="Assortment of freshly baked pastries" loading="lazy">
+                    </div>
+                    <div class="gallery-item item">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=80" alt="Artisan bread loaf on a wooden board" loading="lazy">
+                    </div>
+                    <div class="gallery-item item">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80" alt="Close-up of a coffee cup with latte art" loading="lazy">
+                    </div>
+                    <div class="gallery-item item">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80" alt="A beautifully plated dessert" loading="lazy">
+                    </div>
+                    <div class="gallery-item item">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80" alt="Elegant dining table setting in a restaurant" loading="lazy">
+                    </div>
+                    <div class="gallery-item item">
+                        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1600&q=80" alt="Cozy coffee shop interior with warm lighting" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="differentiators">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Distinctive Experience</h2>
+                </div>
+                <div class="differentiators-grid">
+                    <div class="differentiator-item">
+                        <h3>Curated Ingredients</h3>
+                        <p>We meticulously select locally sourced butter and premium ingredients, ensuring unparalleled freshness and flavor in every bite.</p>
+                    </div>
+                    <div class="differentiator-item">
+                        <h3>Daily Handcrafting</h3>
+                        <p>Our skilled pastry chefs handcraft every item daily, dedicating precision and passion to each creation for superior quality.</p>
+                    </div>
+                    <div class="differentiator-item">
+                        <h3>Effortless Service</h3>
+                        <p>Experience the convenience of our seamless online ordering system and efficient curbside pickup, designed for your ease.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="social-proof">
+            <div class="container">
+                <p>
+                    4.8 rating from 71 reviews
+                    <svg class="star-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.908-7.417 3.908 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+                    </svg>
+                </p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Visit Us</h2>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Location & Hours</h3>
+                        <p>Lakeside Rd, Pokhara,<br>Gandaki Province 33700, Nepal</p>
+                        <p>Phone: <a href="tel:+9779820495352">+977 982-0495352</a></p>
+                        <p>Open Daily: 8:00 AM - 6:00 PM</p>
+                        <div class="btn-group">
+                            <a href="tel:+9779820495352" class="btn">Call Now</a>
+                            <a href="#menu" class="btn btn-outline">Order Online</a>
+                        </div>
+                    </div>
+                    <div class="map-placeholder">
+                        <h3>Find Us</h3>
+                        <p>Lakeside Rd, Pokhara, Gandaki Province 33700, Nepal</p>
+                        <p>A quiet retreat by the lake.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2023 Butter Mellow. All rights reserved.</p>
+            <p>Lakeside Rd, Pokhara, Gandaki Province 33700, Nepal</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.main-nav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            navMenu.classList.toggle('open');
+        });
+
+        // Close nav when a link is clicked (for mobile)
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('open')) {
+                    hamburger.classList.remove('open');
+                    navMenu.classList.remove('open');
+                }
+            });
+        });
+
+        // Header scroll effect
+        const header = document.querySelector('.site-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll Reveal Animation (Intersection Observer)
+        const sections = document.querySelectorAll('section');
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!prefersReducedMotion) {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        } else {
+            sections.forEach(section => {
+                section.classList.add('is-visible'); // Ensure content is visible if animations are off
+            });
+        }
+    </script>
+</body>
+</html>
